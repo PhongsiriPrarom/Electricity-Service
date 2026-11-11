@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>คู่มือขอใช้บริการ กฟภ. — เตรียมเอกสารให้ครบ ไปครั้งเดียวจบ</title>
+<meta name="description" content="คู่มือภาพประกอบ ขั้นตอนและเอกสารสำหรับขอใช้บริการการไฟฟ้าส่วนภูมิภาค อ่านง่ายทุกวัย">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;600;800&display=swap">
+<style>
+:root{--p:#5b2a86;--p2:#7a4aa8;--a:#ffc400;--bg:#f7f3fb;--c:#fff;--t:#24142f;--m:#5f5070;--l:#ddd0ea;--ok:#1f8a4c;font-size:18px}
+@media(prefers-color-scheme:dark){:root:not([data-th=light]){--p:#b98ae6;--p2:#9a63d0;--bg:#170f1f;--c:#241a2e;--t:#f3ecf9;--m:#bdaed0;--l:#3b2c4a;--ok:#5fd18d}}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{font-family:"Noto Sans Thai",Tahoma,sans-serif;background:var(--bg);color:var(--t);line-height:1.65;padding:env(safe-area-inset-top,0) 0 env(safe-area-inset-bottom,0)}
+button,input{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--a);outline-offset:2px}
+.w{max-width:1000px;margin:0 auto;padding:0 16px}
+header.top{background:var(--p);color:#fff}
+@media(prefers-color-scheme:dark){:root:not([data-th=light]) header.top{background:#2d1747;color:#fff}}
+.bar{display:flex;gap:8px;align-items:center;justify-content:space-between;padding:10px 0;flex-wrap:wrap}
+.brand{font-weight:800;font-size:1.05rem;text-decoration:none;color:inherit}
+.fs button{background:rgba(255,255,255,.15);border:2px solid rgba(255,255,255,.5);color:#fff;border-radius:10px;min-width:44px;height:44px;cursor:pointer;font-weight:800}
+.fs span{font-size:.8rem;margin-right:6px}
+.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:16px;align-items:center;padding:12px 0 26px}
+.hero h1{font-size:2rem;line-height:1.25;margin:0 0 8px;font-weight:800}
+.hero p{margin:0 0 16px;font-size:1.05rem;opacity:.95}
+.hero svg{width:100%;height:auto;max-height:260px}
+.search{display:flex;background:var(--c);border-radius:14px;padding:4px;box-shadow:0 2px 0 rgba(0,0,0,.2)}
+.search input{flex:1;border:0;background:transparent;padding:12px 14px;font-size:1.05rem;min-width:0;color:var(--t)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:22px 0}
+.step{background:var(--c);border:2px solid var(--l);border-radius:18px;padding:14px;text-align:center}
+.step b{display:block;font-size:2.4rem;line-height:1.2}
+.step small{color:var(--m)}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 16px}
+.chip{border:2px solid var(--p);background:transparent;color:var(--p);border-radius:99px;padding:8px 16px;font-weight:600;cursor:pointer;min-height:44px}
+.chip[aria-pressed=true]{background:var(--p);color:#fff}
+@media(prefers-color-scheme:dark){:root:not([data-th=light]) .chip[aria-pressed=true]{color:#170f1f}}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+.card{display:flex;gap:12px;align-items:center;text-align:left;background:var(--c);border:2px solid var(--l);border-radius:18px;padding:14px;cursor:pointer;width:100%}
+.card:hover{border-color:var(--p2)}
+.ic{flex:none;width:64px;height:64px;border-radius:18px;background:var(--bg);display:grid;place-items:center;font-size:2.1rem;border:2px solid var(--l)}
+.card h3{margin:0;font-size:1.05rem;line-height:1.35}
+.card p{margin:2px 0 0;font-size:.85rem;color:var(--m);line-height:1.4}
+.empty{padding:30px;text-align:center;color:var(--m)}
+.back{background:none;border:2px solid var(--p);color:var(--p);border-radius:12px;padding:8px 16px;font-weight:600;cursor:pointer;margin:16px 0;min-height:44px}
+.dh{display:flex;gap:14px;align-items:center;margin-bottom:10px}
+.dh .ic{width:84px;height:84px;font-size:3rem}
+.dh h2{margin:0;font-size:1.6rem;line-height:1.3}
+.dh p{margin:0;color:var(--m)}
+h3.s{font-size:1.2rem;margin:26px 0 10px;padding-left:10px;border-left:6px solid var(--a)}
+.list{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.list li{display:flex;gap:12px;align-items:center;background:var(--c);border:2px solid var(--l);border-radius:14px;padding:10px 12px}
+.list .e{font-size:1.8rem;flex:none;width:44px;text-align:center}
+.list label{display:flex;gap:12px;align-items:center;width:100%;cursor:pointer}
+.list input{width:26px;height:26px;flex:none;accent-color:var(--ok)}
+.list li.done{border-color:var(--ok)}
+.list li.done .tx{text-decoration:line-through;opacity:.6}
+.list small{display:block;color:var(--m)}
+.prog{height:14px;border-radius:9px;background:var(--l);overflow:hidden;margin:6px 0}
+.prog i{display:block;height:100%;background:var(--ok);width:0;transition:width .25s}
+.fee{background:#fff6d6;color:#3b2c00;border:2px solid var(--a);border-radius:14px;padding:10px 14px;font-weight:600;margin-bottom:8px}
+.note{background:var(--c);border:2px dashed var(--p2);border-radius:14px;padding:10px 14px;margin-bottom:8px}
+.poa{background:var(--c);border:2px solid var(--l);border-radius:14px;padding:4px 14px 10px}
+.poa summary{font-weight:700;cursor:pointer;padding:10px 0;min-height:44px}
+.act{display:flex;gap:10px;flex-wrap:wrap;margin:22px 0}
+.btn{background:var(--p);color:#fff;border:0;border-radius:12px;padding:12px 20px;font-weight:700;cursor:pointer;min-height:48px}
+@media(prefers-color-scheme:dark){:root:not([data-th=light]) .btn{color:#170f1f}}
+.help{background:var(--p);color:#fff;border-radius:18px;padding:18px;margin:30px 0;display:flex;gap:14px;align-items:center}
+@media(prefers-color-scheme:dark){:root:not([data-th=light]) .help{background:#2d1747}}
+.help b{font-size:1.7rem;color:var(--a)}
+footer{color:var(--m);font-size:.82rem;padding:0 0 40px}
+[hidden]{display:none!important}
+@media(max-width:700px){.hero{grid-template-columns:1fr}.hero h1{font-size:1.65rem}.hero svg{max-height:190px}.steps{gap:8px}.step{padding:10px 6px}.step small{font-size:.75rem}.dh .ic{width:64px;height:64px;font-size:2.2rem}.dh h2{font-size:1.3rem}}
+@media print{header.top,.chips,.act,.back,.help,.fs{display:none!important}body{background:#fff;color:#000}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<header class="top">
+ <div class="w">
+  <div class="bar">
+   <a class="brand" href="#" id="home">⚡ คู่มือบริการ กฟภ.</a>
+   <div class="fs" aria-label="ปรับขนาดตัวอักษร"><span>ขนาดตัวอักษร</span><button id="fm" aria-label="ลดขนาดตัวอักษร">ก−</button> <button id="fp" aria-label="เพิ่มขนาดตัวอักษร">ก+</button></div>
+  </div>
+  <div class="hero" id="hero">
+   <div>
+    <h1>จะขอบริการไฟฟ้า<br>เตรียมอะไรไปบ้าง?</h1>
+    <p>เลือกเรื่องที่ต้องการ ดูรูปและรายการเอกสาร แล้วติ๊กทีละข้อได้เลย</p>
+    <div class="search"><input id="q" type="search" placeholder="พิมพ์ค้นหา เช่น ย้ายชื่อ ติดมิเตอร์" aria-label="ค้นหาบริการ"></div>
+   </div>
+   <svg viewBox="0 0 320 220" role="img" aria-label="ภาพบ้านที่ต่อไฟจากเสาไฟฟ้า">
+    <rect x="0" y="185" width="320" height="35" fill="#3f1c5e"/>
+    <rect x="40" y="30" width="10" height="160" fill="#c9a36a"/><rect x="18" y="48" width="54" height="7" fill="#c9a36a"/><rect x="25" y="72" width="40" height="6" fill="#c9a36a"/>
+    <path d="M20 50 Q110 95 205 105 M70 50 Q130 80 205 105" stroke="#fff" stroke-width="2.5" fill="none"/>
+    <polygon points="160,105 250,105 205,70" fill="#ffc400" transform="translate(0,0)"/>
+    <rect x="170" y="105" width="70" height="80" fill="#fff"/><polygon points="160,108 205,66 250,108" fill="#ffc400"/>
+    <rect x="195" y="140" width="22" height="45" fill="#7a4aa8"/><rect x="176" y="118" width="14" height="14" fill="#9fd8ff"/>
+    <rect x="250" y="118" width="38" height="52" rx="6" fill="#fff" stroke="#ffc400" stroke-width="4"/>
+    <circle cx="269" cy="140" r="13" fill="#e9dcf6" stroke="#5b2a86" stroke-width="3"/><path d="M269 140 l6 -7" stroke="#5b2a86" stroke-width="3"/>
+    <text x="269" y="164" font-size="9" text-anchor="middle" fill="#5b2a86" font-weight="700">kWh</text>
+    <path d="M240 140 H250" stroke="#fff" stroke-width="3"/>
+    <text x="269" y="108" font-size="22" text-anchor="middle">⚡</text>
+   </svg>
+  </div>
+ </div>
+</header>
+
+<main class="w">
+ <section id="list">
+  <div class="steps" aria-label="ขั้นตอนโดยรวม">
+   <div class="step"><b>📋</b>เลือกเรื่อง<br><small>ดูรายการเอกสาร</small></div>
+   <div class="step"><b>🗂️</b>เตรียมเอกสาร<br><small>ติ๊กให้ครบทุกข้อ</small></div>
+   <div class="step"><b>🏢</b>ไปที่ กฟภ.<br><small>ใกล้บ้านคุณ</small></div>
+  </div>
+  <div class="chips" id="chips" role="group" aria-label="หมวดหมู่"></div>
+  <div class="grid" id="grid"></div>
+  <p class="empty" id="empty" hidden>ไม่พบเรื่องที่ค้นหา ลองพิมพ์คำสั้น ๆ เช่น “โอน” หรือ “มิเตอร์”</p>
+ </section>
+ <article id="detail" hidden></article>
+ <div class="help"><b>1129</b><div>ไม่แน่ใจว่าต้องใช้เอกสารอะไร? โทรสอบถาม PEA Contact Center หรือสอบถามที่สำนักงาน กฟภ. ใกล้บ้านก่อนเดินทาง</div></div>
+ <footer>ข้อมูลจัดทำจากเอกสารแนะนำของผู้จัดทำเว็บไซต์ ไม่ใช่เว็บไซต์ทางการของ กฟภ. ค่าธรรมเนียมและเอกสารอาจเปลี่ยนแปลงได้ กรุณาตรวจสอบกับ กฟภ. อีกครั้งก่อนไปติดต่อ</footer>
+</main>
+
+<script>
+const W=[["⚡","เดินลอยอากาศ","สายเมนทองแดง 16 ตร.มม. หรืออลูมิเนียม 25 ตร.มม."],["🕳️","เดินร้อยท่อฝังดิน","สายทองแดง NYY หรือ CV 1×16 ตร.มม."],["🔌","ตู้โหลดเซ็นเตอร์","ติดตั้ง RCD ป้องกันไฟรั่ว"],["💡","สวิตช์และปลั๊กไฟ","ติดตั้งอุปกรณ์ให้เรียบร้อย"],["🌱","สายดิน","สายทองแดง 10 ตร.มม."],["📍","แท่งกราวด์","ยาว 2.40 เมตร"]];
+const POA=["สำเนาบัตรประชาชนของผู้รับมอบอำนาจ และพยาน 2 คน","สำเนาทะเบียนบ้านของผู้รับมอบอำนาจ","หนังสือมอบอำนาจ ติดอากรแสตมป์ 30 บาท"];
+const CO="กรณีมีเจ้าของร่วมสองคนขึ้นไป ให้อีกคนเซ็นยินยอมในสำเนาโฉนด พร้อมแนบสำเนาบัตรประชาชนและทะเบียนบ้าน";
+const CO2="ถ้ามีเจ้าของร่วมสองคนขึ้นไป ให้เซ็นยินยอมการโอนเปลี่ยนชื่อ พร้อมสำเนาบัตรประชาชนและทะเบียนบ้านของทุกคน";
+const CERT="หนังสือรับรองบริษัท อายุไม่เกิน 3 เดือน (เซ็นและประทับตราบริษัท)";
+const S=[
+{id:"new",cat:"ไฟใหม่",ic:"🏠",t:"ขอติดตั้งมิเตอร์ใหม่",d:"บ้านหรืออาคารหลังใหม่ (บุคคลธรรมดา)",w:W,docs:["สำเนาทะเบียนบ้านที่ติดมิเตอร์ไฟฟ้า (ระบุเลขโฉนดที่ดิน)","สำเนาบัตรประชาชนของผู้ใช้ไฟ","สำเนาทะเบียนบ้านตามบัตรประชาชน","ใบอนุญาตก่อสร้าง","สำเนาสัญญาซื้อขายที่ดิน (กรณีซื้อขาย)","สำเนาโฉนดที่ขอใช้ไฟ (มีชื่อผู้ขอใช้ไฟ)","ใบประกอบวิชาชีพช่าง","สำเนาบัตรประชาชนช่าง"],fee:["ค่าติดตั้งมิเตอร์ 749 บาท"],n:[CO]},
+{id:"new-co",cat:"ไฟใหม่",ic:"🏢",t:"ขอติดตั้งมิเตอร์ใหม่ (นิติบุคคล)",d:"บริษัทหรือนิติบุคคล",w:W,docs:["สำเนาทะเบียนบ้านที่ติดมิเตอร์ไฟฟ้า",CERT,"สำเนาบัตรประชาชนของผู้ใช้ไฟ (กรรมการบริษัท)","สำเนาทะเบียนบ้านตามบัตรประชาชน (กรรมการบริษัท)","ใบยินยอมให้ใช้สถานที่","ใบประกอบวิชาชีพช่าง","สำเนาสัญญาซื้อขายที่ดิน (กรณีซื้อขาย)","สำเนาโฉนดที่ขอใช้ไฟ"],fee:["ค่าติดตั้งมิเตอร์ 749 บาท"],n:[CO],poa:1,poa2:["สำเนาบัตรประชาชนของผู้รับมอบอำนาจ","สำเนาทะเบียนบ้านของผู้รับมอบอำนาจ","หนังสือมอบอำนาจ ติดอากรแสตมป์ 30 บาท"]},
+{id:"new-rent",cat:"ไฟใหม่",ic:"🤝",t:"ขอติดตั้งมิเตอร์ (กรณีเช่า)",d:"บริษัทเช่าที่ดินเพื่อใช้ไฟ",docs:["สำเนาทะเบียนบ้านที่ติดมิเตอร์ไฟฟ้า (ระบุเลขโฉนดที่ดิน)",CERT,"สำเนาบัตรประชาชนของกรรมการบริษัทและผู้ให้เช่า","สำเนาทะเบียนบ้านตามบัตรประชาชนของกรรมการบริษัทและผู้ให้เช่า","ใบอนุญาตก่อสร้าง","แบบตารางโหลด","สำเนาสัญญาเช่าที่ดิน (ติดอากรแสตมป์ พันละ 1 บาทต่อปี)","สำเนาโฉนดที่ขอใช้ไฟ (มีชื่อผู้ขอใช้ไฟ)","ใบประกอบวิชาชีพวิศวกร","หนังสือรับรองจากสภาวิศวกร","สำเนาบัตรประชาชนช่าง"],n:[CO]},
+{id:"temp",cat:"ไฟใหม่",ic:"🚧",t:"ขอติดตั้งมิเตอร์ไฟชั่วคราว",d:"ใช้ไฟช่วงก่อสร้าง",w:[W[0],W[2],W[3],W[4],W[5]],docs:["ใบประกอบวิชาชีพช่าง","สำเนาบัตรประชาชนช่าง","สำเนาบัตรประชาชน","สำเนาทะเบียนบ้าน","สำเนาสัญญาซื้อขาย หรือสัญญาเช่า (ติดอากรแสตมป์ พันละ 1 บาทต่อปี)","สำเนาโฉนดที่ขอใช้ไฟ"],fee:["ค่าประกันมิเตอร์ 15(45)A 1 เฟส = 6,000 บาท","ค่าประกันมิเตอร์ 15(45)A 3 เฟส = 18,000 บาท"],n:[]},
+{id:"agri",cat:"ไฟใหม่",ic:"🌾",t:"ขอติดตั้งมิเตอร์ไฟเกษตร",d:"ใช้ไฟในการเกษตร",w:[["⚡","สายเมน","สายอลูมิเนียม 25 ตร.มม."],W[2],W[4],W[5]],docs:["สำเนาบัตรประชาชน","สำเนาทะเบียนบ้านตามบัตรประชาชน","สำเนาโฉนดที่ดิน","ใบประกอบวิชาชีพช่าง","สมุดเกษตรกร (เล่มเขียว)","สัญญาเช่าที่ดิน (กรณีเช่า)","สัญญาซื้อขายที่ดิน"],n:[CO]},
+{id:"line",cat:"ไฟใหม่",ic:"🛣️",t:"ขอขยายเขตไฟฟ้า",d:"ขยายระบบไฟไปยังพื้นที่ที่ยังไม่มีไฟ",docs:["สำเนาทะเบียนบ้านหลังที่ใช้ไฟ","หนังสือรับรองบริษัท อายุไม่เกิน 3 เดือน","สำเนาบัตรประชาชน","สำเนาทะเบียนบ้านตามบัตรประชาชน","สัญญาซื้อขายที่ดิน","สัญญาเช่า (ติดอากรแสตมป์ พันละ 1 บาทต่อปี)","สำเนาโฉนดที่ดินหน้า-หลัง (ออกเป็นทางสาธารณประโยชน์)"],fee:["ค่าสำรวจออกแบบ 5,350 บาท รับเฉพาะ: งานโครงการจัดสรร, หม้อแปลงเฉพาะราย, เมนชายคา, ที่ดินแบ่งขาย"],n:[CO]},
+{id:"size",cat:"เปลี่ยนแปลง",ic:"📈",t:"ขอเพิ่มขนาดมิเตอร์",d:"ใช้ไฟมากขึ้น หรือติดเครื่องชาร์จรถ",w:[["⚡","ลอยอากาศ มิเตอร์ 15(45)","ทองแดง 16 ตร.มม. หรืออลูมิเนียม 25 ตร.มม."],["⚡","ลอยอากาศ มิเตอร์ 5(100) / 30(100)","ทองแดง 35 ตร.มม. หรืออลูมิเนียม 50 ตร.มม."],W[1],W[2],W[3],W[4],W[5]],docs:["ใบเสร็จค่าไฟฟ้า","สำเนาทะเบียนบ้านที่ติดมิเตอร์ไฟฟ้า (มีชื่อผู้ขอใช้ไฟ)","สำเนาบัตรประชาชนของผู้ใช้ไฟ","สำเนาทะเบียนบ้านตามบัตรประชาชน","ใบประกอบวิชาชีพช่าง","เอกสารเกี่ยวกับเครื่องชาร์จรถ (วอลล์ชาร์จ)"],n:[]},
+{id:"tou",cat:"เปลี่ยนแปลง",ic:"🕒",t:"ขอเปลี่ยนมิเตอร์เป็น TOU",d:"เปลี่ยนประเภทมิเตอร์เป็นแบบ TOU",docs:["ใบเสร็จค่าไฟฟ้า","สำเนาทะเบียนบ้านที่ติดมิเตอร์ไฟฟ้า (มีชื่อผู้ขอใช้ไฟ)","สำเนาบัตรประชาชนของผู้ใช้ไฟ","สำเนาทะเบียนตามบัตรประจำตัวประชาชน"],fee:["มิเตอร์ TOU 1 เฟส: 3,300 × 7% = 3,531 บาท","มิเตอร์ TOU 3 เฟส: 3,750 × 7% = 4,012.50 บาท"],n:[]},
+{id:"perm",cat:"เปลี่ยนแปลง",ic:"🔁",t:"เปลี่ยนไฟชั่วคราวเป็นไฟถาวร",d:"ก่อสร้างเสร็จแล้ว ขอใช้ไฟถาวร (รับเงินประกันคืน)",w:W,docs:["ใบเสร็จค่าไฟฟ้า","ใบประกอบวิชาชีพช่าง และบัตรประชาชนช่าง","ใบอนุญาตก่อสร้าง","สำเนาทะเบียนบ้านที่ขอใช้มิเตอร์ไฟฟ้า (ระบุเลขโฉนดที่ดิน)","สำเนาบัตรประชาชน จำนวน 2 ชุด","สำเนาทะเบียนบ้านตามบัตรประชาชน จำนวน 2 ชุด","สำเนาโฉนดที่ขอใช้ไฟ (มีชื่อผู้ขอใช้ไฟ)","สัญญาซื้อขายที่ดิน (กรณีซื้อขาย)","ใบเสร็จค่าประกันมิเตอร์ (ฉบับจริง)"],n:[]},
+{id:"move",cat:"เปลี่ยนแปลง",ic:"🚚",t:"ขอย้ายจุดติดตั้งมิเตอร์",d:"ย้ายตำแหน่งมิเตอร์",docs:["สำเนาทะเบียนบ้านที่ติดมิเตอร์ไฟฟ้า (ระบุเลขโฉนดที่ดิน)","สำเนาบัตรประชาชนของผู้ใช้ไฟ","สำเนาทะเบียนบ้านตามบัตรประชาชน","สำเนาสัญญาซื้อขายที่ดิน (กรณีซื้อขาย)","สำเนาโฉนดที่ขอใช้ไฟ (มีชื่อผู้ขอใช้ไฟ)","ใบประกอบวิชาชีพช่าง"],n:[CO]},
+{id:"tr-sale",cat:"โอนชื่อ",ic:"🏷️",t:"โอนชื่อผู้ใช้ไฟ (ซื้อขายบ้าน)",d:"ซื้อบ้านมา ขอเปลี่ยนชื่อผู้ใช้ไฟเป็นชื่อเรา",docs:["ใบเสร็จค่าไฟฟ้า","สำเนาทะเบียนบ้านที่ติดมิเตอร์ไฟฟ้า (ระบุเลขที่โฉนดที่ดิน)","สำเนาบัตรประชาชน","สำเนาทะเบียนตามบัตรประชาชน","ใบเปลี่ยนชื่อ-นามสกุล","สำเนาสัญญาซื้อขาย","สำเนาโฉนดที่ดิน เอกสารสิทธิ์ (มีชื่อของผู้รับโอน)"],n:["มาดำเนินการก่อนเวลา 16.00 น.",CO2]},
+{id:"tr-rent",cat:"โอนชื่อ",ic:"🔑",t:"โอนชื่อผู้ใช้ไฟ (เช่าบ้าน)",d:"เช่าบ้านอยู่ ขอเปลี่ยนชื่อผู้ใช้ไฟ",docs:["ถ่ายรูปหน่วยมิเตอร์","ใบเสร็จค่าไฟฟ้า","สำเนาทะเบียนบ้านที่ติดมิเตอร์ไฟฟ้า (มีชื่อผู้ขอใช้ไฟ)","หนังสือรับรองการจดทะเบียนบริษัท อายุไม่เกิน 3 เดือน","สำเนาบัตรประชาชนของผู้ให้เช่าและผู้เช่า","สำเนาทะเบียนบ้านของผู้ให้เช่าและผู้เช่า","สำเนาสัญญาเช่าบ้าน (ติดอากรแสตมป์ พันละ 1 บาทต่อปี)","สำเนาโฉนดที่ดิน เอกสารสิทธิ์ (มีชื่อของผู้รับโอน)"],n:[CO]},
+{id:"tr-die",cat:"โอนชื่อ",ic:"🕊️",t:"โอนชื่อผู้ใช้ไฟ (ผู้ใช้ไฟเสียชีวิต)",d:"รับโอนต่อจากผู้ใช้ไฟที่เสียชีวิต",docs:["ถ่ายรูปหน่วยมิเตอร์","ใบเสร็จค่าไฟฟ้า","สำเนาทะเบียนบ้านที่ติดมิเตอร์ไฟฟ้า (มีชื่อของผู้รับโอน) ระบุเลขโฉนดที่ดิน","สำเนาบัตรประชาชน","สำเนาทะเบียนบ้านตามบัตรประชาชน","สำเนามรณบัตร","สำเนาโฉนดที่ดิน เอกสารสิทธิ์ (มีชื่อของผู้รับโอน)"],n:["มาดำเนินการก่อนเวลา 15.00 น.",CO]},
+{id:"cancel",cat:"ยกเลิก/คืนเงิน",ic:"🛑",t:"ขอยกเลิกการใช้ไฟ + คืนเงินประกัน",d:"เลิกใช้ไฟ และขอเงินประกันคืน",docs:["ใบเสร็จค่าไฟฟ้า","สำเนาทะเบียนบ้านหลังที่ใช้ไฟ","หนังสือรับรองบริษัท อายุไม่เกิน 3 เดือน พร้อมประทับตราบริษัท (กรณีเป็นบริษัท)","สำเนาบัตรประชาชนของผู้ใช้ไฟ จำนวน 2 ชุด","สำเนาทะเบียนบ้านของผู้ใช้ไฟ จำนวน 2 ชุด","ใบเสร็จค่าประกันมิเตอร์","สำเนามรณบัตร (กรณีผู้ใช้ไฟเสียชีวิต)"],n:["บางรายการใช้เฉพาะบางกรณี ที่ข้อความระบุไว้ในวงเล็บ"]},
+{id:"cancel-co",cat:"ยกเลิก/คืนเงิน",ic:"🏬",t:"ขอยกเลิกการใช้ไฟ (นิติบุคคล)",d:"บริษัทเลิกใช้ไฟ และขอเงินประกันคืน",docs:["ใบเสร็จค่าไฟฟ้า","ใบเสร็จค่าประกันมิเตอร์","สำเนาทะเบียนบ้านหลังที่ใช้ไฟ","หนังสือรับรองบริษัท อายุไม่เกิน 3 เดือน จำนวน 2 ชุด (เซ็นและประทับตราทุกแผ่น)","สำเนาบัตรประชาชนของผู้ใช้ไฟ (กรรมการบริษัท) จำนวน 2 ชุด","สำเนาทะเบียนบ้านของผู้ใช้ไฟ (กรรมการบริษัท) จำนวน 2 ชุด"],n:[]},
+{id:"refund",cat:"ยกเลิก/คืนเงิน",ic:"💰",t:"ขอคืนเงินประกันการใช้ไฟฟ้า",d:"ขอรับเงินค่าประกันมิเตอร์คืน",docs:["สำเนาทะเบียนบ้านหลังที่ใช้ไฟ","สำเนาบัตรประชาชนของผู้ใช้ไฟ","สำเนาทะเบียนบ้านของผู้ใช้ไฟ","ใบเสร็จค่าไฟฟ้าเดือนล่าสุด","ใบเสร็จค่าประกันมิเตอร์"],n:[],poa2:["สำเนาบัตรประชาชนของผู้รับมอบอำนาจ","สำเนาทะเบียนบ้านของผู้รับมอบอำนาจ","หนังสือมอบอำนาจ ติดอากรแสตมป์ 30 บาท"]},
+{id:"vet",cat:"อื่น ๆ",ic:"🎖️",t:"เอกสารทหารผ่านศึก",d:"รายการเอกสารสำหรับทหารผ่านศึกและครอบครัว",docs:["ใบเสร็จค่าไฟฟ้า","สำเนาหนังสือรับรองทหารผ่านศึก","สำเนาบัตรทหารผ่านศึก หรือบัตรประจำตัวครอบครัวทหารผ่านศึก","สำเนาบัตรประชาชนของผู้ใช้ไฟ","สำเนาทะเบียนบ้านตามบัตรประชาชน","สำเนาทะเบียนบ้านที่ใช้ไฟ"],n:[],poa2:["สำเนาบัตรประชาชนของผู้รับมอบอำนาจ","สำเนาทะเบียนบ้านของผู้รับมอบอำนาจ","หนังสือมอบอำนาจ ติดอากรแสตมป์ 30 บาท"]}
+];
+const EM=[["มรณ","🕊️"],["บัตรประชาชน","🪪"],["บัตรทหาร","🎖️"],["ทหารผ่านศึก","🎖️"],["ทะเบียนบ้าน","🏠"],["ทะเบียนตามบัตร","🏠"],["โฉนด","📜"],["ใบเสร็จ","🧾"],["วิศวกร","👷"],["ช่าง","👷"],["สัญญา","🤝"],["หนังสือรับรอง","🏢"],["อนุญาต","🏗️"],["ถ่ายรูป","📷"],["ยินยอม","✅"],["ตาราง","📋"],["เปลี่ยนชื่อ","🔄"],["ชาร์จ","🔌"],["เกษตร","🌾"],["มอบอำนาจ","✍️"]];
+const em=s=>(EM.find(e=>s.includes(e[0]))||[0,"📄"])[1];
+const $=s=>document.querySelector(s);
+const CATS=["ทั้งหมด","ไฟใหม่","เปลี่ยนแปลง","โอนชื่อ","ยกเลิก/คืนเงิน","อื่น ๆ"];
+let cat="ทั้งหมด";
+const st=(k,v)=>{try{return v===undefined?JSON.parse(localStorage.getItem(k)):localStorage.setItem(k,JSON.stringify(v))}catch(e){return null}};
+
+function renderChips(){
+ $("#chips").innerHTML=CATS.map(c=>`<button class="chip" aria-pressed="${c===cat}" data-c="${c}">${c}</button>`).join("");
+}
+function renderGrid(){
+ const q=$("#q").value.trim();
+ const r=S.filter(s=>(cat==="ทั้งหมด"||s.cat===cat)&&(!q||(s.t+s.d+s.docs.join()).includes(q)));
+ $("#grid").innerHTML=r.map(s=>`<button class="card" data-id="${s.id}"><span class="ic" aria-hidden="true">${s.ic}</span><span><h3>${s.t}</h3><p>${s.d}</p></span></button>`).join("");
+ $("#empty").hidden=r.length>0;
+}
+function renderDetail(s){
+ const poa=s.poa2||POA, saved=st("pea-"+s.id)||[];
+ const w=s.w?`<h3 class="s">งานเดินสายที่ช่างต้องทำ</h3><ul class="list">${s.w.map(x=>`<li><span class="e" aria-hidden="true">${x[0]}</span><span><b>${x[1]}</b><small>${x[2]}</small></span></li>`).join("")}</ul>`:"";
+ const fee=s.fee&&s.fee.length?`<h3 class="s">ค่าใช้จ่าย</h3>${s.fee.map(f=>`<div class="fee">💵 ${f}</div>`).join("")}`:"";
+ const n=s.n&&s.n.length?`<h3 class="s">ควรรู้</h3>${s.n.map(x=>`<div class="note">💡 ${x}</div>`).join("")}`:"";
+ $("#detail").innerHTML=`<button class="back" id="bk">← กลับไปเลือกเรื่องอื่น</button>
+ <div class="dh"><span class="ic" aria-hidden="true">${s.ic}</span><div><h2>${s.t}</h2><p>${s.d}</p></div></div>
+ ${w}
+ <h3 class="s">เอกสารที่ต้องเตรียม <small id="pc"></small></h3>
+ <div class="prog" role="progressbar" aria-valuemin="0" aria-valuemax="100"><i id="pb"></i></div>
+ <ul class="list" id="dl">${s.docs.map((d,i)=>`<li id="li${i}"><label><input type="checkbox" data-i="${i}" ${saved.includes(i)?"checked":""}><span class="e" aria-hidden="true">${em(d)}</span><span class="tx">${d}</span></label></li>`).join("")}</ul>
+ ${fee}${n}
+ <h3 class="s">ถ้าให้คนอื่นไปทำแทน</h3>
+ <details class="poa"><summary>ดูเอกสารเพิ่มเติม (กรณีมอบอำนาจ)</summary><ul class="list">${poa.map(d=>`<li><span class="e" aria-hidden="true">${em(d)}</span><span>${d}</span></li>`).join("")}</ul></details>
+ <div class="act"><button class="btn" id="pr">🖨️ พิมพ์รายการนี้</button><button class="btn" id="rs">↺ ล้างเครื่องหมาย</button></div>`;
+ const upd=()=>{
+  const bs=[...document.querySelectorAll("#dl input")],ds=bs.filter(b=>b.checked).length,p=Math.round(ds/bs.length*100);
+  bs.forEach(b=>b.closest("li").classList.toggle("done",b.checked));
+  $("#pb").style.width=p+"%";$("#pb").parentNode.setAttribute("aria-valuenow",p);
+  $("#pc").textContent=`(ครบ ${ds} จาก ${bs.length})`;
+  st("pea-"+s.id,bs.map((b,i)=>b.checked?i:-1).filter(i=>i>=0));
+ };
+ $("#dl").onchange=upd;upd();
+ $("#bk").onclick=()=>{location.hash=""};
+ $("#pr").onclick=()=>print();
+ $("#rs").onclick=()=>{document.querySelectorAll("#dl input").forEach(b=>b.checked=false);upd()};
+}
+function route(){
+ const id=location.hash.slice(1),s=S.find(x=>x.id===id);
+ $("#list").hidden=!!s;$("#hero").hidden=!!s;$("#detail").hidden=!s;
+ if(s)renderDetail(s);
+ window.scrollTo(0,0);
+}
+$("#chips").onclick=e=>{const c=e.target.dataset.c;if(c){cat=c;renderChips();renderGrid()}};
+$("#grid").onclick=e=>{const b=e.target.closest("[data-id]");if(b)location.hash=b.dataset.id};
+$("#q").oninput=renderGrid;
+$("#home").onclick=e=>{e.preventDefault();location.hash=""};
+let fz=st("pea-fz")||18;
+const setFz=n=>{fz=Math.max(15,Math.min(26,n));document.documentElement.style.fontSize=fz+"px";st("pea-fz",fz)};
+$("#fp").onclick=()=>setFz(fz+2);$("#fm").onclick=()=>setFz(fz-2);setFz(fz);
+addEventListener("hashchange",route);
+renderChips();renderGrid();route();
+</script>
+</body>
+</html>
