@@ -52,7 +52,9 @@ h3.s{font-size:1.2rem;margin:26px 0 10px;padding-left:10px;border-left:6px solid
 .list{list-style:none;margin:0;padding:0;display:grid;gap:8px}
 .list li{display:flex;gap:12px;align-items:center;background:var(--c);border:2px solid var(--l);border-radius:14px;padding:10px 12px}
 .list .e{font-size:1.8rem;flex:none;width:44px;text-align:center}
-.list label{display:flex;gap:12px;align-items:center;width:100%;cursor:pointer}
+.list label{display:flex;gap:12px;align-items:center;flex:1;cursor:pointer}
+.spk{flex:none;width:48px;height:48px;border-radius:50%;border:2px solid var(--p);background:transparent;font-size:1.4rem;cursor:pointer;line-height:1}
+.spk.on{background:var(--a);border-color:var(--a)}
 .list input{width:26px;height:26px;flex:none;accent-color:var(--ok)}
 .list li.done{border-color:var(--ok)}
 .list li.done .tx{text-decoration:line-through;opacity:.6}
@@ -72,7 +74,7 @@ h3.s{font-size:1.2rem;margin:26px 0 10px;padding-left:10px;border-left:6px solid
 footer{color:var(--m);font-size:.82rem;padding:0 0 40px}
 [hidden]{display:none!important}
 @media(max-width:700px){.hero{grid-template-columns:1fr}.hero h1{font-size:1.65rem}.hero svg{max-height:190px}.steps{gap:8px}.step{padding:10px 6px}.step small{font-size:.75rem}.dh .ic{width:64px;height:64px;font-size:2.2rem}.dh h2{font-size:1.3rem}}
-@media print{header.top,.chips,.act,.back,.help,.fs{display:none!important}body{background:#fff;color:#000}}
+@media print{.spk,header.top,.chips,.act,.back,.help,.fs{display:none!important}body{background:#fff;color:#000}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 </head>
@@ -135,7 +137,7 @@ const S=[
 {id:"temp",cat:"ไฟใหม่",ic:"🚧",t:"ขอติดตั้งมิเตอร์ไฟชั่วคราว",d:"ใช้ไฟช่วงก่อสร้าง",w:[W[0],W[2],W[3],W[4],W[5]],docs:["ใบประกอบวิชาชีพช่าง","สำเนาบัตรประชาชนช่าง","สำเนาบัตรประชาชน","สำเนาทะเบียนบ้าน","สำเนาสัญญาซื้อขาย หรือสัญญาเช่า (ติดอากรแสตมป์ พันละ 1 บาทต่อปี)","สำเนาโฉนดที่ขอใช้ไฟ"],fee:["ค่าประกันมิเตอร์ 15(45)A 1 เฟส = 6,000 บาท","ค่าประกันมิเตอร์ 15(45)A 3 เฟส = 18,000 บาท"],n:[]},
 {id:"agri",cat:"ไฟใหม่",ic:"🌾",t:"ขอติดตั้งมิเตอร์ไฟเกษตร",d:"ใช้ไฟในการเกษตร",w:[["⚡","สายเมน","สายอลูมิเนียม 25 ตร.มม."],W[2],W[4],W[5]],docs:["สำเนาบัตรประชาชน","สำเนาทะเบียนบ้านตามบัตรประชาชน","สำเนาโฉนดที่ดิน","ใบประกอบวิชาชีพช่าง","สมุดเกษตรกร (เล่มเขียว)","สัญญาเช่าที่ดิน (กรณีเช่า)","สัญญาซื้อขายที่ดิน"],n:[CO]},
 {id:"line",cat:"ไฟใหม่",ic:"🛣️",t:"ขอขยายเขตไฟฟ้า",d:"ขยายระบบไฟไปยังพื้นที่ที่ยังไม่มีไฟ",docs:["สำเนาทะเบียนบ้านหลังที่ใช้ไฟ","หนังสือรับรองบริษัท อายุไม่เกิน 3 เดือน","สำเนาบัตรประชาชน","สำเนาทะเบียนบ้านตามบัตรประชาชน","สัญญาซื้อขายที่ดิน","สัญญาเช่า (ติดอากรแสตมป์ พันละ 1 บาทต่อปี)","สำเนาโฉนดที่ดินหน้า-หลัง (ออกเป็นทางสาธารณประโยชน์)"],fee:["ค่าสำรวจออกแบบ 5,350 บาท รับเฉพาะ: งานโครงการจัดสรร, หม้อแปลงเฉพาะราย, เมนชายคา, ที่ดินแบ่งขาย"],n:[CO]},
-{id:"size",cat:"เปลี่ยนแปลง",ic:"📈",t:"ขอเพิ่มขนาดมิเตอร์",d:"ใช้ไฟมากขึ้น หรือติดเครื่องชาร์จรถ",w:[["⚡","ลอยอากาศ มิเตอร์ 15(45)","ทองแดง 16 ตร.มม. หรืออลูมิเนียม 25 ตร.มม."],["⚡","ลอยอากาศ มิเตอร์ 5(100) / 30(100)","ทองแดง 35 ตร.มม. หรืออลูมิเนียม 50 ตร.มม."],W[1],W[2],W[3],W[4],W[5]],docs:["ใบเสร็จค่าไฟฟ้า","สำเนาทะเบียนบ้านที่ติดมิเตอร์ไฟฟ้า (มีชื่อผู้ขอใช้ไฟ)","สำเนาบัตรประชาชนของผู้ใช้ไฟ","สำเนาทะเบียนบ้านตามบัตรประชาชน","ใบประกอบวิชาชีพช่าง","เอกสารเกี่ยวกับเครื่องชาร์จรถ (วอลล์ชาร์จ)"],n:[]},
+{id:"size",cat:"เปลี่ยนแปลง",ic:"📈",t:"ขอเพิ่มขนาดมิเตอร์",d:"ใช้ไฟมากขึ้น หรือติดเครื่องชาร์จรถ",w:[["⚡","ลอยอากาศ มิเตอร์ 15(45)","ทองแดง 16 ตร.มม. หรืออลูมิเนียม 25 ตร.มม."],["⚡","ลอยอากาศ มิเตอร์ 5(100) / 30(100)","ทองแดง 35 ตร.มม. หรืออลูมิเนียม 50 ตร.มม."],["🕳️","เดินร้อยท่อฝังดิน","สายทองแดง NYY หรือ CV 1×35 ตร.มม."],W[2],W[3],W[4],W[5]],docs:["ใบเสร็จค่าไฟฟ้า","สำเนาทะเบียนบ้านที่ติดมิเตอร์ไฟฟ้า (มีชื่อผู้ขอใช้ไฟ)","สำเนาบัตรประชาชนของผู้ใช้ไฟ","สำเนาทะเบียนบ้านตามบัตรประชาชน","ใบประกอบวิชาชีพช่าง","สำเนาบัตรประชาชนช่าง","เอกสารเกี่ยวกับเครื่องชาร์จรถ (วอลล์ชาร์จ)"],n:[]},
 {id:"tou",cat:"เปลี่ยนแปลง",ic:"🕒",t:"ขอเปลี่ยนมิเตอร์เป็น TOU",d:"เปลี่ยนประเภทมิเตอร์เป็นแบบ TOU",docs:["ใบเสร็จค่าไฟฟ้า","สำเนาทะเบียนบ้านที่ติดมิเตอร์ไฟฟ้า (มีชื่อผู้ขอใช้ไฟ)","สำเนาบัตรประชาชนของผู้ใช้ไฟ","สำเนาทะเบียนตามบัตรประจำตัวประชาชน"],fee:["มิเตอร์ TOU 1 เฟส: 3,300 × 7% = 3,531 บาท","มิเตอร์ TOU 3 เฟส: 3,750 × 7% = 4,012.50 บาท"],n:[]},
 {id:"perm",cat:"เปลี่ยนแปลง",ic:"🔁",t:"เปลี่ยนไฟชั่วคราวเป็นไฟถาวร",d:"ก่อสร้างเสร็จแล้ว ขอใช้ไฟถาวร (รับเงินประกันคืน)",w:W,docs:["ใบเสร็จค่าไฟฟ้า","ใบประกอบวิชาชีพช่าง และบัตรประชาชนช่าง","ใบอนุญาตก่อสร้าง","สำเนาทะเบียนบ้านที่ขอใช้มิเตอร์ไฟฟ้า (ระบุเลขโฉนดที่ดิน)","สำเนาบัตรประชาชน จำนวน 2 ชุด","สำเนาทะเบียนบ้านตามบัตรประชาชน จำนวน 2 ชุด","สำเนาโฉนดที่ขอใช้ไฟ (มีชื่อผู้ขอใช้ไฟ)","สัญญาซื้อขายที่ดิน (กรณีซื้อขาย)","ใบเสร็จค่าประกันมิเตอร์ (ฉบับจริง)"],n:[]},
 {id:"move",cat:"เปลี่ยนแปลง",ic:"🚚",t:"ขอย้ายจุดติดตั้งมิเตอร์",d:"ย้ายตำแหน่งมิเตอร์",docs:["สำเนาทะเบียนบ้านที่ติดมิเตอร์ไฟฟ้า (ระบุเลขโฉนดที่ดิน)","สำเนาบัตรประชาชนของผู้ใช้ไฟ","สำเนาทะเบียนบ้านตามบัตรประชาชน","สำเนาสัญญาซื้อขายที่ดิน (กรณีซื้อขาย)","สำเนาโฉนดที่ขอใช้ไฟ (มีชื่อผู้ขอใช้ไฟ)","ใบประกอบวิชาชีพช่าง"],n:[CO]},
@@ -150,6 +152,24 @@ const S=[
 const EM=[["มรณ","🕊️"],["บัตรประชาชน","🪪"],["บัตรทหาร","🎖️"],["ทหารผ่านศึก","🎖️"],["ทะเบียนบ้าน","🏠"],["ทะเบียนตามบัตร","🏠"],["โฉนด","📜"],["ใบเสร็จ","🧾"],["วิศวกร","👷"],["ช่าง","👷"],["สัญญา","🤝"],["หนังสือรับรอง","🏢"],["อนุญาต","🏗️"],["ถ่ายรูป","📷"],["ยินยอม","✅"],["ตาราง","📋"],["เปลี่ยนชื่อ","🔄"],["ชาร์จ","🔌"],["เกษตร","🌾"],["มอบอำนาจ","✍️"]];
 const em=s=>(EM.find(e=>s.includes(e[0]))||[0,"📄"])[1];
 const $=s=>document.querySelector(s);
+const SP='<button class="spk" aria-label="กดฟังเสียงอ่าน" title="ฟังเสียงอ่าน">🔊</button>';
+let VO=null;const TTS="speechSynthesis" in window;
+const pick=()=>{const v=speechSynthesis.getVoices().filter(x=>/^th/i.test(x.lang));VO=v.find(x=>/female|หญิง|premwadee|kanya|narisa|achara|google/i.test(x.name))||v[0]||null};
+if(TTS){pick();speechSynthesis.onvoiceschanged=pick}
+const stopSay=()=>{if(TTS)speechSynthesis.cancel();document.querySelectorAll(".spk.on,#ra.on").forEach(b=>b.classList.remove("on"))};
+const mk=(t,btn,last)=>{const u=new SpeechSynthesisUtterance(t);u.lang="th-TH";if(VO)u.voice=VO;u.pitch=1.35;u.rate=.95;if(last)u.onend=u.onerror=()=>btn&&btn.classList.remove("on");return u};
+function say(t,btn){
+ if(!TTS){alert("เบราว์เซอร์นี้ไม่รองรับเสียงอ่าน ลองใช้ Chrome หรือ Safari");return}
+ const was=btn.classList.contains("on");stopSay();if(was)return;
+ btn.classList.add("on");speechSynthesis.speak(mk("เตรียม "+t,btn,true));
+}
+function sayAll(btn){
+ if(!TTS){alert("เบราว์เซอร์นี้ไม่รองรับเสียงอ่าน ลองใช้ Chrome หรือ Safari");return}
+ const was=btn.classList.contains("on");stopSay();if(was)return;
+ btn.classList.add("on");
+ const t=[...document.querySelectorAll("#dl .tx")].map(x=>x.textContent);
+ t.forEach((x,i)=>speechSynthesis.speak(mk((i+1)+" "+x,btn,i===t.length-1)));
+}
 const CATS=["ทั้งหมด","ไฟใหม่","เปลี่ยนแปลง","โอนชื่อ","ยกเลิก/คืนเงิน","อื่น ๆ"];
 let cat="ทั้งหมด";
 const st=(k,v)=>{try{return v===undefined?JSON.parse(localStorage.getItem(k)):localStorage.setItem(k,JSON.stringify(v))}catch(e){return null}};
@@ -173,11 +193,11 @@ function renderDetail(s){
  ${w}
  <h3 class="s">เอกสารที่ต้องเตรียม <small id="pc"></small></h3>
  <div class="prog" role="progressbar" aria-valuemin="0" aria-valuemax="100"><i id="pb"></i></div>
- <ul class="list" id="dl">${s.docs.map((d,i)=>`<li id="li${i}"><label><input type="checkbox" data-i="${i}" ${saved.includes(i)?"checked":""}><span class="e" aria-hidden="true">${em(d)}</span><span class="tx">${d}</span></label></li>`).join("")}</ul>
+ <ul class="list" id="dl">${s.docs.map((d,i)=>`<li id="li${i}"><label><input type="checkbox" data-i="${i}" ${saved.includes(i)?"checked":""}><span class="e" aria-hidden="true">${em(d)}</span><span class="tx">${d}</span></label>${SP}</li>`).join("")}</ul>
  ${fee}${n}
  <h3 class="s">ถ้าให้คนอื่นไปทำแทน</h3>
- <details class="poa"><summary>ดูเอกสารเพิ่มเติม (กรณีมอบอำนาจ)</summary><ul class="list">${poa.map(d=>`<li><span class="e" aria-hidden="true">${em(d)}</span><span>${d}</span></li>`).join("")}</ul></details>
- <div class="act"><button class="btn" id="pr">🖨️ พิมพ์รายการนี้</button><button class="btn" id="rs">↺ ล้างเครื่องหมาย</button></div>`;
+ <details class="poa"><summary>ดูเอกสารเพิ่มเติม (กรณีมอบอำนาจ)</summary><ul class="list">${poa.map(d=>`<li><span class="e" aria-hidden="true">${em(d)}</span><span class="tx" style="flex:1">${d}</span>${SP}</li>`).join("")}</ul></details>
+ <div class="act"><button class="btn" id="ra">🔊 อ่านออกเสียงทั้งหมด</button><button class="btn" id="pr">🖨️ พิมพ์รายการนี้</button><button class="btn" id="rs">↺ ล้างเครื่องหมาย</button></div>`;
  const upd=()=>{
   const bs=[...document.querySelectorAll("#dl input")],ds=bs.filter(b=>b.checked).length,p=Math.round(ds/bs.length*100);
   bs.forEach(b=>b.closest("li").classList.toggle("done",b.checked));
@@ -188,13 +208,15 @@ function renderDetail(s){
  $("#dl").onchange=upd;upd();
  $("#bk").onclick=()=>{location.hash=""};
  $("#pr").onclick=()=>print();
+ $("#ra").onclick=e=>sayAll(e.currentTarget);
+ $("#detail").onclick=e=>{const b=e.target.closest(".spk");if(b)say(b.closest("li").querySelector(".tx").textContent,b)};
  $("#rs").onclick=()=>{document.querySelectorAll("#dl input").forEach(b=>b.checked=false);upd()};
 }
 function route(){
  const id=location.hash.slice(1),s=S.find(x=>x.id===id);
  $("#list").hidden=!!s;$("#hero").hidden=!!s;$("#detail").hidden=!s;
  if(s)renderDetail(s);
- window.scrollTo(0,0);
+ stopSay();window.scrollTo(0,0);
 }
 $("#chips").onclick=e=>{const c=e.target.dataset.c;if(c){cat=c;renderChips();renderGrid()}};
 $("#grid").onclick=e=>{const b=e.target.closest("[data-id]");if(b)location.hash=b.dataset.id};
