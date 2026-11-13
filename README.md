@@ -4,7 +4,7 @@
 
 ## วิธีขึ้นเว็บฟรี
 1. สร้าง repository ใหม่บน GitHub (Public) เช่น `pea-guide`
-2. กด **Add file → Upload files** แล้วลากไฟล์ `index.html`, `.nojekyll`, `README.md` ไปวาง → **Commit**
+2. กด **Add file → Upload files** แล้วลากไฟล์ `index.html`, `spk-letter.pdf`, `.nojekyll`, `README.md` ไปวาง (ต้องมี `spk-letter.pdf` ด้วย ไม่งั้นปุ่มเปิด PDF ในหน้า ส.ป.ก. จะเปิดไม่ได้) → **Commit**
 3. ไปที่ **Settings → Pages** → Source เลือก **Deploy from a branch** → Branch **main** / **(root)** → **Save**
 4. รอ 1–2 นาที เปิดที่ `https://ชื่อบัญชี.github.io/pea-guide/`
 
