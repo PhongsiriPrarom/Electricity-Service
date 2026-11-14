@@ -2,6 +2,7 @@
 <html lang="th">
 <head>
 <meta charset="utf-8">
+<meta name="referrer" content="no-referrer">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>คู่มือขอใช้บริการ กฟภ. — เตรียมเอกสารให้ครบ ไปครั้งเดียวจบ</title>
 <meta name="description" content="คู่มือภาพประกอบ ขั้นตอนและเอกสารสำหรับขอใช้บริการการไฟฟ้าส่วนภูมิภาค อ่านง่ายทุกวัย">
@@ -90,7 +91,20 @@ dialog::backdrop{background:rgba(20,8,30,.65)}
 .wm{position:absolute;inset:0;display:grid;place-items:center;font-size:4.4rem;font-weight:800;color:rgba(190,0,0,.12);transform:rotate(-28deg);pointer-events:none}
 .emb{width:84px;height:84px;margin:0 auto 4px;display:block}
 .cap{margin:0 14px 16px;color:var(--m);font-size:.85rem}
-@media print{.spk,header.top,.chips,.act,.back,.help,.fs{display:none!important}body{background:#fff;color:#000}}
+.gal{display:flex;gap:14px;align-items:center;justify-content:space-between;margin:20px 0 0;padding:12px 14px;background:var(--c);border:3px solid var(--a);border-radius:20px;text-decoration:none;color:inherit}
+.gal b{display:block;font-size:1.1rem;line-height:1.4}.gal small{color:var(--m);font-size:.85rem}.gt{flex:1}
+.gs{position:relative;flex:none;width:132px;height:96px;border-radius:14px;overflow:hidden;background:var(--l)}
+.gs img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .7s}
+.gs img.on{opacity:1}
+.strip{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 2px 10px;-webkit-overflow-scrolling:touch}
+.strip figure{margin:0;flex:0 0 78%;max-width:340px;scroll-snap-align:start;background:var(--c);border:2px solid var(--l);border-radius:14px;overflow:hidden}
+.strip.one figure{flex-basis:100%;max-width:520px}
+.strip img{display:block;width:100%;height:auto;cursor:zoom-in;background:var(--l)}
+.strip figcaption{padding:8px 12px;font-size:.92rem}
+#lb img{display:block;width:100%;height:auto}
+#toast{position:fixed;left:12px;right:12px;bottom:calc(14px + env(safe-area-inset-bottom,0px));background:#24142f;color:#fff;border:2px solid var(--a);border-radius:14px;padding:12px 14px;z-index:50;text-align:center}
+@media(max-width:700px){.gs{width:108px;height:84px}.gal b{font-size:1rem}}
+@media print{.gal,.spk,header.top,.chips,.act,.back,.help,.fs{display:none!important}body{background:#fff;color:#000}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 </head>
@@ -126,6 +140,7 @@ dialog::backdrop{background:rgba(20,8,30,.65)}
 
 <main class="w">
  <section id="list">
+  <a class="gal" href="#photos" aria-label="ดูภาพตัวอย่างการติดตั้งระบบไฟฟ้า"><span class="gt"><b>📷 ภาพตัวอย่างการติดตั้งระบบไฟฟ้า</b><small>แตะเพื่อดูทั้งหมด 11 ภาพ พร้อมคำอธิบาย</small></span><span class="gs" id="gs" aria-hidden="true"></span></a>
   <div class="steps" aria-label="ขั้นตอนโดยรวม">
    <div class="step"><b>📋</b>เลือกเรื่อง<br><small>ดูรายการเอกสาร</small></div>
    <div class="step"><b>🗂️</b>เตรียมเอกสาร<br><small>ติ๊กให้ครบทุกข้อ</small></div>
@@ -136,10 +151,13 @@ dialog::backdrop{background:rgba(20,8,30,.65)}
   <p class="empty" id="empty" hidden>ไม่พบเรื่องที่ค้นหา ลองพิมพ์คำสั้น ๆ เช่น “โอน” หรือ “มิเตอร์”</p>
  </section>
  <article id="detail" hidden></article>
+ <article id="gal" hidden></article>
  <div class="help"><b>1129</b><div>ไม่แน่ใจว่าต้องใช้เอกสารอะไร? โทรสอบถาม PEA Contact Center หรือสอบถามที่สำนักงาน กฟภ. ใกล้บ้านก่อนเดินทาง</div></div>
  <footer>ข้อมูลจัดทำจากเอกสารแนะนำของผู้จัดทำเว็บไซต์ ไม่ใช่เว็บไซต์ทางการของ กฟภ. ค่าธรรมเนียมและเอกสารอาจเปลี่ยนแปลงได้ กรุณาตรวจสอบกับ กฟภ. อีกครั้งก่อนไปติดต่อ</footer>
 </main>
 
+<div id="toast" role="status" hidden></div>
+<dialog id="lb" aria-label="ดูรูปขยาย"><div class="dc"><div class="dh2"><b id="lbt"></b><button class="x" id="lx" aria-label="ปิดรูป">✕</button></div><img id="lbi" alt=""></div></dialog>
 <dialog id="dlg" aria-label="ตัวอย่างหนังสือยินยอม ส.ป.ก.">
 <div class="dc">
  <div class="dh2"><b>👁️ ตัวอย่างหนังสือยินยอม (ส.ป.ก.)</b><button class="x" id="dx" aria-label="ปิดหน้าต่าง">✕</button></div>
@@ -189,24 +207,60 @@ const em=s=>(EM.find(e=>s.includes(e[0]))||[0,"📄"])[1];
 const $=s=>document.querySelector(s);
 const SPKBOX='<div class="spkbox"><b>🌾 เอกสารพิเศษสำหรับที่ดิน ส.ป.ก.</b><p>“หนังสือยินยอมหรืออนุญาตให้ใช้ที่ดินในเขตปฏิรูปที่ดิน” ออกโดยสำนักงานการปฏิรูปที่ดินเพื่อเกษตรกรรม (ส.ป.ก.) หรือสำนักงานปฏิรูปที่ดินจังหวัด ใช้ยื่นประกอบการขอใช้ไฟที่ กฟภ.</p><div class="act"><button class="btn" id="sv">👁️ ดูตัวอย่างหนังสือยินยอม</button><a class="btn" href="spk-letter.pdf" target="_blank" rel="noopener">📄 เปิดหนังสือ ส.ป.ก. ถึง กฟภ. (PDF)</a></div></div>';
 const SP='<button class="spk" aria-label="กดฟังเสียงอ่าน" title="ฟังเสียงอ่าน">🔊</button>';
-let VO=null;const TTS="speechSynthesis" in window;
-const pick=()=>{const v=speechSynthesis.getVoices().filter(x=>/^th/i.test(x.lang));VO=v.find(x=>/female|หญิง|premwadee|kanya|narisa|achara|google/i.test(x.name))||v[0]||null};
-if(TTS){pick();speechSynthesis.onvoiceschanged=pick}
-const stopSay=()=>{if(TTS)speechSynthesis.cancel();document.querySelectorAll(".spk.on,#ra.on").forEach(b=>b.classList.remove("on"))};
-const norm=t=>t.replace(/ส\.ป\.ก\./g,"สอ ปอ กอ").replace(/กฟภ\./g,"การไฟฟ้าส่วนภูมิภาค").replace(/ตร\.มม\./g,"ตารางมิลลิเมตร").replace(/พ\.ศ\./g,"พุทธศักราช");
-const mk=(t,btn,last)=>{const u=new SpeechSynthesisUtterance(norm(t));u.lang="th-TH";if(VO)u.voice=VO;u.pitch=1.35;u.rate=.95;if(last)u.onend=u.onerror=()=>btn&&btn.classList.remove("on");return u};
-function say(t,btn){
- if(!TTS){alert("เบราว์เซอร์นี้ไม่รองรับเสียงอ่าน ลองใช้ Chrome หรือ Safari");return}
- const was=btn.classList.contains("on");stopSay();if(was)return;
- btn.classList.add("on");speechSynthesis.speak(mk("เตรียม "+t,btn,true));
+const PH=[
+{k:"1.1",t:"การเดินวงจรไฟฟ้าแบบลอยอากาศ สำหรับบ้านทั่วไป",d:"ตัวอย่างการเดินวงจรไฟฟ้าแบบลอยอากาศ (สายไฟพาดลอยจากเสาไฟฟ้า) สำหรับบ้านอยู่อาศัยทั่วไป",im:[["house-1","เสาไฟฟ้าและสายไฟลอยอากาศ"],["house-2","บ้านที่ขอใช้ไฟ"],["house-3","มิเตอร์ไฟฟ้าและสายที่ต่อลงมา"],["house-4","บริเวณหน้าบ้าน (เห็นเสาไฟฟ้าด้านหลัง)"],["house-5","ตู้โหลดเซ็นเตอร์ (เบรกเกอร์) ในบ้าน"],["house-6","เสาไฟฟ้าหน้าบ้านและสายเมนลอยอากาศ"]]},
+{k:"1.2",t:"การเดินวงจรไฟฟ้าแบบลอยอากาศ สำหรับขอใช้มิเตอร์ชั่วคราว",d:"ตัวอย่างการเดินวงจรไฟฟ้าแบบลอยอากาศสำหรับการขอใช้มิเตอร์ชั่วคราว ดูจากภาพรวมพื้นที่ และตู้ที่ติดตั้งเครื่องตัดไฟรั่ว (RCD)",im:[["temp-rcd","เครื่องตัดไฟรั่ว (RCD)"],["temp-site","ภาพรวมพื้นที่"]]},
+{k:"1.3",t:"หนังสือยินยอมรับสภาพการใช้ไฟฟ้า",d:"หนังสือยินยอมรับสภาพการใช้ไฟฟ้า โดยผู้ขอใช้ไฟจะไม่เรียกร้องสิ่งใดจากการไฟฟ้าส่วนภูมิภาค หากเกิดความเสียหาย (ข้อความในรูปเป็นลายมือ แตะรูปเพื่อขยายอ่านได้)",im:[["consent","ตัวอย่างหนังสือยินยอมรับสภาพการใช้ไฟฟ้า"]]},
+{k:"1.4",t:"มาตรฐานการติดตั้งระบบไฟฟ้า (12 ก.ค. 2567)",d:"แบบมาตรฐานการติดตั้งระบบไฟฟ้าของกองวิศวกรรมระบบไฟฟ้า กฟภ. ลงวันที่ 12 ก.ค. 2567 (แบบเลขที่ SA4-015/87007) หัวข้อในแบบ: การติดตั้งสายเมนวงจรที่ 2 สำหรับบ้านอยู่อาศัยหรือกิจการขนาดเล็กที่ติดตั้งเครื่องอัดประจุยานยนต์ไฟฟ้า (EV Charger)",im:[["std","แบบมาตรฐานการติดตั้งระบบไฟฟ้า"]]},
+{k:"1.5",t:"กล่องต่อสายไฟกันน้ำ",d:"เมื่อมีการต่อสายบริเวณใกล้มิเตอร์ ต้องใช้กล่องต่อสายไฟกันน้ำ เพราะแค่พันเทปอาจยังไม่ปลอดภัยในระยะยาว",im:[["jbox","กล่องต่อสายไฟกันน้ำ"]]}
+];
+const ALL=PH.flatMap(g=>g.im);
+function renderGallery(){
+ $("#gal").innerHTML='<button class="back" id="gb">← กลับหน้าแรก</button><div class="dh"><span class="ic" aria-hidden="true">📷</span><div><h2>ภาพตัวอย่างการติดตั้งระบบไฟฟ้า</h2><p>เลื่อนซ้าย-ขวาดูรูปต่อไป แตะรูปเพื่อขยาย</p></div></div>'+
+ PH.map(g=>`<h3 class="s">${g.k} ${g.t}</h3><p>${g.d}</p><div class="strip${g.im.length<2?" one":""}">${g.im.map(m=>`<figure><img loading="lazy" src="ph-${m[0]}.jpg" alt="${m[1]}" data-f="${m[0]}" data-c="${m[1]}"><figcaption>${m[1]}</figcaption></figure>`).join("")}</div>`).join("");
+ $("#gb").onclick=()=>{location.hash=""};
 }
-function sayAll(btn){
- if(!TTS){alert("เบราว์เซอร์นี้ไม่รองรับเสียงอ่าน ลองใช้ Chrome หรือ Safari");return}
- const was=btn.classList.contains("on");stopSay();if(was)return;
- btn.classList.add("on");
- const t=[...document.querySelectorAll("#dl .tx")].map(x=>x.textContent);
- t.forEach((x,i)=>speechSynthesis.speak(mk((i+1)+" "+x,btn,i===t.length-1)));
+$("#gal").onclick=e=>{const m=e.target.closest("img[data-f]");if(m){$("#lbi").src="ph-"+m.dataset.f+".jpg";$("#lbi").alt=m.dataset.c;$("#lbt").textContent=m.dataset.c;$("#lb").showModal()}};
+$("#lx").onclick=()=>$("#lb").close();
+$("#lb").onclick=e=>{if(e.target.id==="lb")e.currentTarget.close()};
+function initSlides(){
+ const g=$("#gs");g.innerHTML=ALL.map((m,i)=>`<img src="t-${m[0]}.jpg" alt=""${i?' loading="lazy"':' class="on"'}>`).join("");
+ if(matchMedia("(prefers-reduced-motion:reduce)").matches)return;
+ const im=g.children;let k=0;
+ setInterval(()=>{if($("#list").hidden)return;im[k].classList.remove("on");k=(k+1)%im.length;im[k].classList.add("on")},2600);
 }
+
+/* ---------- เสียงอ่าน: เสียงผู้หญิงภาษาไทย (ออนไลน์ก่อน แล้วสำรองด้วยเสียงในเครื่อง) ---------- */
+const TTS="speechSynthesis" in window;
+const isLine=/Line\//i.test(navigator.userAgent);
+const norm=t=>t.replace(/ส\.ป\.ก\./g,"สอ ปอ กอ").replace(/กฟภ\./g,"การไฟฟ้าส่วนภูมิภาค").replace(/ตร\.มม\./g,"ตารางมิลลิเมตร").replace(/พ\.ศ\./g,"พุทธศักราช").replace(/×/g," คูณ ").replace(/\s+/g," ").trim();
+const chunk=t=>{let r=norm(t);const o=[];while(r.length>140){let i=r.lastIndexOf(" ",140);if(i<40)i=140;o.push(r.slice(0,i).trim());r=r.slice(i).trim()}if(r)o.push(r);return o};
+const AU=new Audio();AU.preload="auto";AU.defaultPlaybackRate=1.08;
+try{AU.preservesPitch=AU.webkitPreservesPitch=AU.mozPreservesPitch=false}catch(e){}
+const ttsUrl=t=>"https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=th&q="+encodeURIComponent(t);
+let tok=0,Q=[],kill=null;
+if(TTS){try{speechSynthesis.getVoices()}catch(e){}}
+function thVoice(){if(!TTS)return null;const v=speechSynthesis.getVoices().filter(x=>/^th([-_]|$)/i.test(x.lang));return v.find(x=>/female|หญิง|premwadee|kanya|narisa|achara|google/i.test(x.name))||v[0]||null}
+function toast(m){const e=$("#toast");e.textContent=m;e.hidden=false;clearTimeout(toast.t);toast.t=setTimeout(()=>{e.hidden=true},8000)}
+function stopSay(){tok++;Q=[];if(kill)kill();try{AU.pause()}catch(e){}if(TTS){try{speechSynthesis.cancel()}catch(e){}}document.querySelectorAll(".spk.on,#ra.on").forEach(b=>b.classList.remove("on"))}
+function fail(){stopSay();toast("เครื่องนี้ยังเล่นเสียงภาษาไทยไม่ได้ กรุณาต่ออินเทอร์เน็ต หรือเปิดเว็บด้วย Chrome / Safari"+(isLine?" (ตอนนี้เปิดใน LINE: กดเมนู ⋮ แล้วเลือก เปิดในเบราว์เซอร์)":""))}
+function online(t){return new Promise((ok,no)=>{let d=0;const tm=setTimeout(()=>fin(no),10000);
+ function fin(f){if(d)return;d=1;clearTimeout(tm);AU.onended=AU.onerror=AU.onplaying=null;f()}
+ kill=()=>{d=1;clearTimeout(tm);AU.onended=AU.onerror=AU.onplaying=null};
+ AU.onended=()=>fin(ok);AU.onerror=()=>fin(no);AU.onplaying=()=>clearTimeout(tm);
+ AU.src=ttsUrl(t);const p=AU.play();if(p&&p.catch)p.catch(()=>fin(no))})}
+function local(t,nx){const v=thVoice();if(!v)return false;const u=new SpeechSynthesisUtterance(t);u.lang=v.lang||"th-TH";u.voice=v;u.pitch=1.3;u.rate=.95;u.onend=u.onerror=nx;speechSynthesis.speak(u);return true}
+function step(my,R){
+ if(my!==tok)return;
+ if(!Q.length){stopSay();return}
+ const t=Q.shift(),nx=()=>step(my,R);
+ const lc=()=>{if(my===tok&&!local(t,nx))fail()};
+ if(R.bad)return lc();
+ online(t).then(nx,()=>{if(my!==tok)return;R.bad=1;lc()});
+}
+function run(items,btn){const was=btn.classList.contains("on");stopSay();if(was)return;btn.classList.add("on");Q=items.flatMap(chunk);step(tok,{})}
+const say=(t,btn)=>run(["เตรียม "+t],btn);
+const sayAll=btn=>run([...document.querySelectorAll("#dl .tx")].map((x,i)=>(i+1)+" "+x.textContent),btn);
 const CATS=["ทั้งหมด","ไฟใหม่","เปลี่ยนแปลง","โอนชื่อ","ยกเลิก/คืนเงิน","อื่น ๆ"];
 let cat="ทั้งหมด";
 const st=(k,v)=>{try{return v===undefined?JSON.parse(localStorage.getItem(k)):localStorage.setItem(k,JSON.stringify(v))}catch(e){return null}};
@@ -252,9 +306,9 @@ function renderDetail(s){
 }
 function route(){
  const id=location.hash.slice(1),s=S.find(x=>x.id===id);
- $("#list").hidden=!!s;$("#hero").hidden=!!s;$("#detail").hidden=!s;
- if(s)renderDetail(s);
- stopSay();if($("#dlg").open)$("#dlg").close();window.scrollTo(0,0);
+ const ph=id==="photos";$("#list").hidden=!!s||ph;$("#hero").hidden=!!s||ph;$("#detail").hidden=!s;$("#gal").hidden=!ph;
+ if(s)renderDetail(s);if(ph)renderGallery();
+ stopSay();if($("#dlg").open)$("#dlg").close();if($("#lb").open)$("#lb").close();window.scrollTo(0,0);
 }
 $("#chips").onclick=e=>{const c=e.target.dataset.c;if(c){cat=c;renderChips();renderGrid()}};
 $("#grid").onclick=e=>{const b=e.target.closest("[data-id]");if(b)location.hash=b.dataset.id};
@@ -266,7 +320,7 @@ $("#fp").onclick=()=>setFz(fz+2);$("#fm").onclick=()=>setFz(fz-2);setFz(fz);
 $("#dx").onclick=()=>$("#dlg").close();
 $("#dlg").onclick=e=>{if(e.target.id==="dlg")e.currentTarget.close()};
 addEventListener("hashchange",route);
-renderChips();renderGrid();route();
+renderChips();renderGrid();initSlides();route();
 </script>
 </body>
 </html>
