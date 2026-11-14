@@ -96,6 +96,10 @@ dialog::backdrop{background:rgba(20,8,30,.65)}
 .gs{position:relative;flex:none;width:132px;height:96px;border-radius:14px;overflow:hidden;background:var(--l)}
 .gs img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .7s}
 .gs img.on{opacity:1}
+.s.bad{border-left-color:#d93025}.s.good{border-left-color:var(--ok)}
+.acc{background:var(--c);border:3px solid var(--p2);border-radius:18px;padding:16px;text-align:center;max-width:520px}
+.acc .ab{font-weight:700}.acc .an{font-size:2rem;font-weight:800;letter-spacing:.04em;margin:6px 0;color:var(--p)}
+.cap2{margin:6px 0 0;color:var(--m);font-size:.85rem}
 .strip{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 2px 10px;-webkit-overflow-scrolling:touch}
 .strip figure{margin:0;flex:0 0 78%;max-width:340px;scroll-snap-align:start;background:var(--c);border:2px solid var(--l);border-radius:14px;overflow:hidden}
 .strip.one figure{flex-basis:100%;max-width:520px}
@@ -140,7 +144,7 @@ dialog::backdrop{background:rgba(20,8,30,.65)}
 
 <main class="w">
  <section id="list">
-  <a class="gal" href="#photos" aria-label="ดูภาพตัวอย่างการติดตั้งระบบไฟฟ้า"><span class="gt"><b>📷 ภาพตัวอย่างการติดตั้งระบบไฟฟ้า</b><small>แตะเพื่อดูทั้งหมด 11 ภาพ พร้อมคำอธิบาย</small></span><span class="gs" id="gs" aria-hidden="true"></span></a>
+  <a class="gal" href="#photos" aria-label="ดูภาพตัวอย่างการติดตั้งระบบไฟฟ้า"><span class="gt"><b>📷 ภาพตัวอย่างการติดตั้งระบบไฟฟ้า</b><small>แตะเพื่อดูทั้งหมด 15 ภาพ พร้อมคำอธิบาย</small></span><span class="gs" id="gs" aria-hidden="true"></span></a>
   <div class="steps" aria-label="ขั้นตอนโดยรวม">
    <div class="step"><b>📋</b>เลือกเรื่อง<br><small>ดูรายการเอกสาร</small></div>
    <div class="step"><b>🗂️</b>เตรียมเอกสาร<br><small>ติ๊กให้ครบทุกข้อ</small></div>
@@ -212,15 +216,23 @@ const PH=[
 {k:"1.2",t:"การเดินวงจรไฟฟ้าแบบลอยอากาศ สำหรับขอใช้มิเตอร์ชั่วคราว",d:"ตัวอย่างการเดินวงจรไฟฟ้าแบบลอยอากาศสำหรับการขอใช้มิเตอร์ชั่วคราว ดูจากภาพรวมพื้นที่ และตู้ที่ติดตั้งเครื่องตัดไฟรั่ว (RCD)",im:[["temp-rcd","เครื่องตัดไฟรั่ว (RCD)"],["temp-site","ภาพรวมพื้นที่"]]},
 {k:"1.3",t:"หนังสือยินยอมรับสภาพการใช้ไฟฟ้า",d:"หนังสือยินยอมรับสภาพการใช้ไฟฟ้า โดยผู้ขอใช้ไฟจะไม่เรียกร้องสิ่งใดจากการไฟฟ้าส่วนภูมิภาค หากเกิดความเสียหาย (ข้อความในรูปเป็นลายมือ แตะรูปเพื่อขยายอ่านได้)",im:[["consent","ตัวอย่างหนังสือยินยอมรับสภาพการใช้ไฟฟ้า"]]},
 {k:"1.4",t:"มาตรฐานการติดตั้งระบบไฟฟ้า (12 ก.ค. 2567)",d:"แบบมาตรฐานการติดตั้งระบบไฟฟ้าของกองวิศวกรรมระบบไฟฟ้า กฟภ. ลงวันที่ 12 ก.ค. 2567 (แบบเลขที่ SA4-015/87007) หัวข้อในแบบ: การติดตั้งสายเมนวงจรที่ 2 สำหรับบ้านอยู่อาศัยหรือกิจการขนาดเล็กที่ติดตั้งเครื่องอัดประจุยานยนต์ไฟฟ้า (EV Charger)",im:[["std","แบบมาตรฐานการติดตั้งระบบไฟฟ้า"]]},
-{k:"1.5",t:"กล่องต่อสายไฟกันน้ำ",d:"เมื่อมีการต่อสายบริเวณใกล้มิเตอร์ ต้องใช้กล่องต่อสายไฟกันน้ำ เพราะแค่พันเทปอาจยังไม่ปลอดภัยในระยะยาว",im:[["jbox","กล่องต่อสายไฟกันน้ำ"]]}
+{k:"1.5",t:"กล่องต่อสายไฟกันน้ำ",d:"เมื่อมีการต่อสายบริเวณใกล้มิเตอร์ ต้องใช้กล่องต่อสายไฟกันน้ำ เพราะแค่พันเทปอาจยังไม่ปลอดภัยในระยะยาว",im:[["jbox","กล่องต่อสายไฟกันน้ำ (แบบเปิดฝา)"],["jbox2","กล่องต่อสายไฟกันน้ำ สีดำ (ตัวอย่างที่ต่อสายแล้ว)"]]},
+{k:"1.6",tone:"bad",t:"⚠️ การเดินสายที่ไม่ปลอดภัย: สายตกแร็ค",d:"การเดินสายที่ไม่ปลอดภัย เพราะสายจะตกแร็คแล้วบาดแร็ค ทำให้ไฟรั่วหรือไฟช็อตได้ ต้องแก้ไขสายให้เข้าช่องแร็คให้ถูกต้อง",im:[["wrong","แก้ไขสายเข้าช่องแร็ค"]]},
+{k:"1.7",tone:"good",t:"✅ การเดินสายที่ปลอดภัย: ฟรีฟอร์มรัดสายไฟ",d:"การเดินสายที่ปลอดภัย แสดงการติดตั้งฟรีฟอร์มรัดสายไฟที่ถูกต้อง",im:[["good","ฟรีฟอร์มรัดสายไฟ"]]},
+{k:"1.8",t:"ภายในตู้เมนเบรกเกอร์ 3 เฟส",d:"ตัวอย่างภายในตู้เมนเบรกเกอร์ 3 เฟส",im:[["panel","ภายในตู้เมนเบรกเกอร์ 3 เฟส"]]},
+{k:"1.9",acc:1,t:"เลขบัญชี การไฟฟ้าส่วนภูมิภาค สาขาสันกำแพง",d:"เลขบัญชีของ กฟภ. สาขาอำเภอสันกำแพง (ตามป้ายที่สำนักงาน)",im:[]}
 ];
+const ACC='<div class="acc"><div class="ab">ธนาคารกรุงไทย จำกัด (มหาชน)</div><div class="an">519-1-07205-7</div><div class="ab">การไฟฟ้าส่วนภูมิภาค<br>สาขาอำเภอสันกำแพง</div><p><button class="btn" data-copy="5191072057">📋 คัดลอกเลขบัญชี</button></p><p class="cap2">ก่อนโอนเงินทุกครั้ง โปรดตรวจสอบเลขบัญชีกับเจ้าหน้าที่ กฟภ. อีกครั้ง</p></div>';
+function copy(t){const ok=()=>toast("คัดลอกเลขบัญชีแล้ว: "+t),no=()=>toast("คัดลอกไม่ได้ กรุณาจดเลขบัญชีเอง");
+ const old=()=>{const a=document.createElement("textarea");a.value=t;a.style.cssText="position:fixed;opacity:0";document.body.appendChild(a);a.select();try{document.execCommand("copy")?ok():no()}catch(e){no()}a.remove()};
+ if(navigator.clipboard&&window.isSecureContext)navigator.clipboard.writeText(t).then(ok,old);else old()}
 const ALL=PH.flatMap(g=>g.im);
 function renderGallery(){
  $("#gal").innerHTML='<button class="back" id="gb">← กลับหน้าแรก</button><div class="dh"><span class="ic" aria-hidden="true">📷</span><div><h2>ภาพตัวอย่างการติดตั้งระบบไฟฟ้า</h2><p>เลื่อนซ้าย-ขวาดูรูปต่อไป แตะรูปเพื่อขยาย</p></div></div>'+
- PH.map(g=>`<h3 class="s">${g.k} ${g.t}</h3><p>${g.d}</p><div class="strip${g.im.length<2?" one":""}">${g.im.map(m=>`<figure><img loading="lazy" src="ph-${m[0]}.jpg" alt="${m[1]}" data-f="${m[0]}" data-c="${m[1]}"><figcaption>${m[1]}</figcaption></figure>`).join("")}</div>`).join("");
+ PH.map(g=>`<h3 class="s ${g.tone||""}">${g.k} ${g.t}</h3><p>${g.d}</p>`+(g.acc?ACC:`<div class="strip${g.im.length<2?" one":""}">${g.im.map(m=>`<figure><img loading="lazy" src="ph-${m[0]}.jpg" alt="${m[1]}" data-f="${m[0]}" data-c="${m[1]}"><figcaption>${m[1]}</figcaption></figure>`).join("")}</div>`)).join("");
  $("#gb").onclick=()=>{location.hash=""};
 }
-$("#gal").onclick=e=>{const m=e.target.closest("img[data-f]");if(m){$("#lbi").src="ph-"+m.dataset.f+".jpg";$("#lbi").alt=m.dataset.c;$("#lbt").textContent=m.dataset.c;$("#lb").showModal()}};
+$("#gal").onclick=e=>{const c=e.target.closest("[data-copy]");if(c){copy(c.dataset.copy);return}const m=e.target.closest("img[data-f]");if(m){$("#lbi").src="ph-"+m.dataset.f+".jpg";$("#lbi").alt=m.dataset.c;$("#lbt").textContent=m.dataset.c;$("#lb").showModal()}};
 $("#lx").onclick=()=>$("#lb").close();
 $("#lb").onclick=e=>{if(e.target.id==="lb")e.currentTarget.close()};
 function initSlides(){
