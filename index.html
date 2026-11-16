@@ -106,6 +106,8 @@ dialog::backdrop{background:rgba(20,8,30,.65)}
 .strip img{display:block;width:100%;height:auto;cursor:zoom-in;background:var(--l)}
 .strip figcaption{padding:8px 12px;font-size:.92rem}
 #lb img{display:block;width:100%;height:auto}
+#lb img.wide{width:auto;max-width:none}
+.note.big{font-size:1.08rem;font-weight:600;border-style:solid}
 #toast{position:fixed;left:12px;right:12px;bottom:calc(14px + env(safe-area-inset-bottom,0px));background:#24142f;color:#fff;border:2px solid var(--a);border-radius:14px;padding:12px 14px;z-index:50;text-align:center}
 @media(max-width:700px){.gs{width:108px;height:84px}.gal b{font-size:1rem}}
 @media print{.gal,.spk,header.top,.chips,.act,.back,.help,.fs{display:none!important}body{background:#fff;color:#000}}
@@ -206,10 +208,22 @@ const _n=S[0];
 S.splice(1,0,{..._n,id:"new-spk",ic:"🏞️",t:"ขอติดตั้งมิเตอร์ใหม่ (กรณีโฉนดที่ดิน ส.ป.ก.)",d:"ที่ดินในเขตปฏิรูปที่ดิน (ส.ป.ก. / สปก.)",
 docs:[..._n.docs.slice(0,6),"หนังสือยินยอมหรืออนุญาตให้ใช้ที่ดินในเขตปฏิรูปที่ดิน (ออกโดย ส.ป.ก. หรือสำนักงานปฏิรูปที่ดินจังหวัด)",..._n.docs.slice(6)],
 n:[CO,"ส.ป.ก. มีหนังสือถึงผู้ว่าการ กฟภ. (ลงวันที่ 25 ก.ค. 2568) ขอให้ กฟภ. จังหวัดให้ผู้ขอใช้ไฟในเขตปฏิรูปที่ดิน ขอหนังสือยินยอมหรือหนังสือแสดงความไม่ขัดข้องจากสำนักงานปฏิรูปที่ดินจังหวัด ยกเว้นพื้นที่จังหวัดกรุงเทพมหานคร นนทบุรี สมุทรสาคร สมุทรสงคราม สมุทรปราการ","ระเบียบ กฟภ. ว่าด้วยการใช้ไฟฟ้าและบริการ พ.ศ. 2562 ข้อ 9 กำหนดว่าผู้ขอใช้ไฟต้องเป็นเจ้าของที่ดินหรือสถานที่ หรือได้รับความยินยอมจากเจ้าของ (ดูหนังสือฉบับเต็มที่ปุ่ม PDF ด้านบน)"],spk:1});
-const EM=[["ปฏิรูปที่ดิน","🌾"],["มรณ","🕊️"],["บัตรประชาชน","🪪"],["บัตรทหาร","🎖️"],["ทหารผ่านศึก","🎖️"],["ทะเบียนบ้าน","🏠"],["ทะเบียนตามบัตร","🏠"],["โฉนด","📜"],["ใบเสร็จ","🧾"],["วิศวกร","👷"],["ช่าง","👷"],["สัญญา","🤝"],["หนังสือรับรอง","🏢"],["อนุญาต","🏗️"],["ถ่ายรูป","📷"],["ยินยอม","✅"],["ตาราง","📋"],["เปลี่ยนชื่อ","🔄"],["ชาร์จ","🔌"],["เกษตร","🌾"],["มอบอำนาจ","✍️"]];
+const _z=S.find(x=>x.id==="size");
+S.splice(S.indexOf(_z)+1,0,{..._z,id:"size-co",ic:"🏭",t:"ขอเพิ่มขนาดมิเตอร์ (บริษัท, นิติบุคคล)",d:"บริษัทหรือนิติบุคคลที่ต้องการใช้ไฟมากขึ้น",docs:["ใบเสร็จค่าไฟฟ้า","สำเนาทะเบียนบ้านที่ติดมิเตอร์ไฟฟ้า",CERT,"สำเนาบัตรประชาชนของผู้ใช้ไฟ (กรรมการบริษัท)","สำเนาทะเบียนบ้านตามบัตรประชาชน (กรรมการบริษัท)","ใบประกอบวิชาชีพช่าง","สำเนาบัตรประชาชนช่าง","หนังสือยินยอมรับสภาพการใช้ไฟฟ้า","ตารางโหลดไฟฟ้า (Load Schedule)","เอกสารเกี่ยวกับเครื่องชาร์จรถ (วอลล์ชาร์จ)"]});
+S.push({id:"bed",cat:"อื่น ๆ",ic:"🛏️",t:"ลงทะเบียนผู้ป่วยติดเตียง",d:"ผู้ป่วยที่ต้องใช้ไฟฟ้าเดินเครื่องมือทางการแพทย์ PEA ไม่ตัดไฟ",
+intro:"PEA ไม่ตัดกระแสไฟฟ้า สถานที่หรือบ้านที่มีผู้ป่วยที่ต้องใช้ไฟฟ้าในการเดินเครื่องมือทางการแพทย์เพื่อการรักษาพยาบาล การไฟฟ้าส่วนภูมิภาค (PEA) มีหลักเกณฑ์ยกเว้นการงดจ่ายไฟฟ้า (ไม่ตัดกระแสไฟฟ้า) ดังนี้",
+doc:["patient-doc.pdf","เปิดดูเอกสารต้นฉบับ (PDF)"],
+docs:["บัตรประจำตัวประชาชนของผู้ใช้ไฟฟ้า","บัตรประจำตัวประชาชนของผู้ป่วย หรือสำเนา","ใบรับรองแพทย์จากโรงพยาบาล อายุไม่เกิน 1 เดือน นับแต่วันที่ออกใบรับรองแพทย์ ที่ระบุว่าผู้ป่วยต้องใช้ไฟฟ้าในการเดินเครื่องมือทางการแพทย์เพื่อการรักษาพยาบาล","หลักฐานแสดงสถานที่ใช้ไฟฟ้า เช่น ใบเสร็จรับเงินค่าไฟฟ้า หรือสัญญาซื้อขายไฟฟ้า หรือสำเนาทะเบียนบ้านสถานที่ใช้ไฟฟ้า"],
+n:["ผู้ใช้ไฟฟ้าติดต่อลงทะเบียนที่สำนักงาน PEA ในพื้นที่ทุกแห่ง"],
+poa2:["หลักฐานแสดงตัวของผู้มอบอำนาจ","หลักฐานแสดงตัวของผู้รับมอบอำนาจ"],
+sec:[{h:"หลังลงทะเบียนแล้ว ต้องรู้",l:[["🔎","PEA สงวนสิทธิ์เข้าตรวจสอบสถานที่ใช้ไฟฟ้า"],["📅","ยื่นลงทะเบียนเพื่อรักษาสิทธิ์ต่อเนื่อง ภายในวันที่ 31 มกราคม ของทุกปี"],["📣","ถ้าไม่ต้องใช้ไฟฟ้าเดินเครื่องมือทางการแพทย์แล้ว ต้องแจ้งยกเลิกกับ PEA ภายใน 30 วัน นับตั้งแต่วันที่สิ้นสุดความจำเป็น"]]},
+{h:"PEA จะยกเลิกสิทธิ์ ในกรณีเหล่านี้",tone:"bad",l:[["⛔","ค้างชำระค่าไฟฟ้ารวมกัน 3 เดือน"],["⛔","ตรวจพบการกระทำโดยมิชอบ หรือการละเมิดการใช้ไฟฟ้า"],["⛔","แจ้งข้อมูลอันเป็นเท็จ"],["⛔","ตรวจพบว่าผู้ป่วยยกเลิกการใช้เครื่องมือทางการแพทย์ แต่ไม่ได้แจ้งยกเลิกกับ PEA"]]}]});
+const EM=[["ปฏิรูปที่ดิน","🌾"],["บัตรประจำตัว","🪪"],["ใบรับรองแพทย์","🩺"],["หลักฐานแสดงตัว","🪪"],["หลักฐานแสดงสถานที่","🏠"],["มรณ","🕊️"],["บัตรประชาชน","🪪"],["บัตรทหาร","🎖️"],["ทหารผ่านศึก","🎖️"],["ทะเบียนบ้าน","🏠"],["ทะเบียนตามบัตร","🏠"],["โฉนด","📜"],["ใบเสร็จ","🧾"],["วิศวกร","👷"],["ช่าง","👷"],["สัญญา","🤝"],["หนังสือรับรอง","🏢"],["อนุญาต","🏗️"],["ถ่ายรูป","📷"],["ยินยอม","✅"],["ตาราง","📋"],["เปลี่ยนชื่อ","🔄"],["ชาร์จ","🔌"],["เกษตร","🌾"],["มอบอำนาจ","✍️"]];
 const em=s=>(EM.find(e=>s.includes(e[0]))||[0,"📄"])[1];
 const $=s=>document.querySelector(s);
 const SPKBOX='<div class="spkbox"><b>🌾 เอกสารพิเศษสำหรับที่ดิน ส.ป.ก.</b><p>“หนังสือยินยอมหรืออนุญาตให้ใช้ที่ดินในเขตปฏิรูปที่ดิน” ออกโดยสำนักงานการปฏิรูปที่ดินเพื่อเกษตรกรรม (ส.ป.ก.) หรือสำนักงานปฏิรูปที่ดินจังหวัด ใช้ยื่นประกอบการขอใช้ไฟที่ กฟภ.</p><div class="act"><button class="btn" id="sv">👁️ ดูตัวอย่างหนังสือยินยอม</button><a class="btn" href="spk-letter.pdf" target="_blank" rel="noopener">📄 เปิดหนังสือ ส.ป.ก. ถึง กฟภ. (PDF)</a></div></div>';
+const LOADBOX='<div class="spkbox"><b>📋 ตารางโหลดไฟฟ้า (Load Schedule)</b><p>ตารางโหลดสำหรับระบบไฟฟ้า 3 เฟส 4 สาย (380/220 โวลต์) คือตารางที่ใช้แจกแจงรายการวงจรย่อย (Circuit Breakers) ของตู้โหลดเซ็นเตอร์ (Load Center) เพื่อควบคุมและคำนวณการใช้กระแสไฟฟ้าในแต่ละเฟส (Phase A, B, C) ให้มีความสมดุล</p><div class="act"><button class="btn" id="lv">👁️ ดูตัวอย่างตารางโหลด</button><a class="btn" href="#photos">📷 ตัวอย่างหนังสือยินยอมรับสภาพ (ภาพข้อ 1.3)</a></div></div>';
+S.find(x=>x.id==="size-co").box=LOADBOX;
 const SP='<button class="spk" aria-label="กดฟังเสียงอ่าน" title="ฟังเสียงอ่าน">🔊</button>';
 const PH=[
 {k:"1.1",t:"การเดินวงจรไฟฟ้าแบบลอยอากาศ สำหรับบ้านทั่วไป",d:"ตัวอย่างการเดินวงจรไฟฟ้าแบบลอยอากาศ (สายไฟพาดลอยจากเสาไฟฟ้า) สำหรับบ้านอยู่อาศัยทั่วไป",im:[["house-1","เสาไฟฟ้าและสายไฟลอยอากาศ"],["house-2","บ้านที่ขอใช้ไฟ"],["house-3","มิเตอร์ไฟฟ้าและสายที่ต่อลงมา"],["house-4","บริเวณหน้าบ้าน (เห็นเสาไฟฟ้าด้านหลัง)"],["house-5","ตู้โหลดเซ็นเตอร์ (เบรกเกอร์) ในบ้าน"],["house-6","เสาไฟฟ้าหน้าบ้านและสายเมนลอยอากาศ"]]},
@@ -232,7 +246,7 @@ function renderGallery(){
  PH.map(g=>`<h3 class="s ${g.tone||""}">${g.k} ${g.t}</h3><p>${g.d}</p>`+(g.acc?ACC:`<div class="strip${g.im.length<2?" one":""}">${g.im.map(m=>`<figure><img loading="lazy" src="ph-${m[0]}.jpg" alt="${m[1]}" data-f="${m[0]}" data-c="${m[1]}"><figcaption>${m[1]}</figcaption></figure>`).join("")}</div>`)).join("");
  $("#gb").onclick=()=>{location.hash=""};
 }
-$("#gal").onclick=e=>{const c=e.target.closest("[data-copy]");if(c){copy(c.dataset.copy);return}const m=e.target.closest("img[data-f]");if(m){$("#lbi").src="ph-"+m.dataset.f+".jpg";$("#lbi").alt=m.dataset.c;$("#lbt").textContent=m.dataset.c;$("#lb").showModal()}};
+$("#gal").onclick=e=>{const c=e.target.closest("[data-copy]");if(c){copy(c.dataset.copy);return}const m=e.target.closest("img[data-f]");if(m){$("#lbi").className="";$("#lbi").src="ph-"+m.dataset.f+".jpg";$("#lbi").alt=m.dataset.c;$("#lbt").textContent=m.dataset.c;$("#lb").showModal()}};
 $("#lx").onclick=()=>$("#lb").close();
 $("#lb").onclick=e=>{if(e.target.id==="lb")e.currentTarget.close()};
 function initSlides(){
@@ -287,17 +301,19 @@ function renderGrid(){
  $("#empty").hidden=r.length>0;
 }
 function renderDetail(s){
+ const intro=s.intro?`<div class="note big">🏥 ${s.intro}</div>${s.doc?`<div class="act"><a class="btn" href="${s.doc[0]}" target="_blank" rel="noopener">📄 ${s.doc[1]}</a></div>`:""}`:"";
+ const sec=(s.sec||[]).map(x=>`<h3 class="s ${x.tone||""}">${x.h}</h3><ul class="list">${x.l.map(m=>`<li><span class="e" aria-hidden="true">${m[0]}</span><span>${m[1]}</span></li>`).join("")}</ul>`).join("");
  const poa=s.poa2||POA, saved=st("pea-"+s.id)||[];
  const w=s.w?`<h3 class="s">งานเดินสายที่ช่างต้องทำ</h3><ul class="list">${s.w.map(x=>`<li><span class="e" aria-hidden="true">${x[0]}</span><span><b>${x[1]}</b><small>${x[2]}</small></span></li>`).join("")}</ul>`:"";
  const fee=s.fee&&s.fee.length?`<h3 class="s">ค่าใช้จ่าย</h3>${s.fee.map(f=>`<div class="fee">💵 ${f}</div>`).join("")}`:"";
  const n=s.n&&s.n.length?`<h3 class="s">ควรรู้</h3>${s.n.map(x=>`<div class="note">💡 ${x}</div>`).join("")}`:"";
  $("#detail").innerHTML=`<button class="back" id="bk">← กลับไปเลือกเรื่องอื่น</button>
  <div class="dh"><span class="ic" aria-hidden="true">${s.ic}</span><div><h2>${s.t}</h2><p>${s.d}</p></div></div>
- ${w}
+ ${intro}${w}
  <h3 class="s">เอกสารที่ต้องเตรียม <small id="pc"></small></h3>
  <div class="prog" role="progressbar" aria-valuemin="0" aria-valuemax="100"><i id="pb"></i></div>
  <ul class="list" id="dl">${s.docs.map((d,i)=>`<li id="li${i}"><label><input type="checkbox" data-i="${i}" ${saved.includes(i)?"checked":""}><span class="e" aria-hidden="true">${em(d)}</span><span class="tx">${d}</span></label>${SP}</li>`).join("")}</ul>
- ${s.spk?SPKBOX:""}${fee}${n}
+ ${s.spk?SPKBOX:""}${s.box||""}${fee}${n}${sec}
  <h3 class="s">ถ้าให้คนอื่นไปทำแทน</h3>
  <details class="poa"><summary>ดูเอกสารเพิ่มเติม (กรณีมอบอำนาจ)</summary><ul class="list">${poa.map(d=>`<li><span class="e" aria-hidden="true">${em(d)}</span><span class="tx" style="flex:1">${d}</span>${SP}</li>`).join("")}</ul></details>
  <div class="act"><button class="btn" id="ra">🔊 อ่านออกเสียงทั้งหมด</button><button class="btn" id="pr">🖨️ พิมพ์รายการนี้</button><button class="btn" id="rs">↺ ล้างเครื่องหมาย</button></div>`;
@@ -312,6 +328,7 @@ function renderDetail(s){
  $("#bk").onclick=()=>{location.hash=""};
  $("#pr").onclick=()=>print();
  $("#ra").onclick=e=>sayAll(e.currentTarget);
+ const lv=$("#lv");if(lv)lv.onclick=()=>{const i=$("#lbi");i.className="wide";i.src="ph-load.jpg";i.alt="ตัวอย่างตารางโหลด";$("#lbt").textContent="ตัวอย่างตารางโหลด (เลื่อน/ถ่างนิ้วเพื่อขยาย)";$("#lb").showModal()};
  const sv=$("#sv");if(sv)sv.onclick=()=>{const d=$("#dlg");if(d.showModal)d.showModal();else alert("เบราว์เซอร์นี้เปิดหน้าต่างตัวอย่างไม่ได้ กรุณากดเปิดไฟล์ PDF แทน")};
  $("#detail").onclick=e=>{const b=e.target.closest(".spk");if(b)say(b.closest("li").querySelector(".tx").textContent,b)};
  $("#rs").onclick=()=>{document.querySelectorAll("#dl input").forEach(b=>b.checked=false);upd()};
