@@ -18,7 +18,7 @@ button,input{font:inherit;color:inherit}
 :focus-visible{outline:3px solid var(--a);outline-offset:2px}
 .w{max-width:1000px;margin:0 auto;padding:0 16px}
 header.top{background:var(--p);color:#fff}
-@media(prefers-color-scheme:dark){:root:not([data-th=light]) header.top{background:#2d1747;color:#fff}}
+@media(prefers-color-scheme:dark){:root:not([data-th=light]) header.top{background:var(--hd,#2d1747);color:#fff}}
 .bar{display:flex;gap:8px;align-items:center;justify-content:space-between;padding:10px 0;flex-wrap:wrap}
 .brand{font-weight:800;font-size:1.05rem;text-decoration:none;color:inherit}
 .fs button{background:rgba(255,255,255,.15);border:2px solid rgba(255,255,255,.5);color:#fff;border-radius:10px;min-width:44px;height:44px;cursor:pointer;font-weight:800}
@@ -70,7 +70,7 @@ h3.s{font-size:1.2rem;margin:26px 0 10px;padding-left:10px;border-left:6px solid
 .btn{background:var(--p);color:#fff;border:0;border-radius:12px;padding:12px 20px;font-weight:700;cursor:pointer;min-height:48px}
 @media(prefers-color-scheme:dark){:root:not([data-th=light]) .btn{color:#170f1f}}
 .help{background:var(--p);color:#fff;border-radius:18px;padding:18px;margin:30px 0;display:flex;gap:14px;align-items:center}
-@media(prefers-color-scheme:dark){:root:not([data-th=light]) .help{background:#2d1747}}
+@media(prefers-color-scheme:dark){:root:not([data-th=light]) .help{background:var(--hd,#2d1747)}}
 .help b{font-size:1.7rem;color:var(--a)}
 footer{color:var(--m);font-size:.82rem;padding:0 0 40px}
 [hidden]{display:none!important}
@@ -110,6 +110,26 @@ dialog::backdrop{background:rgba(20,8,30,.65)}
 .note.big{font-size:1.08rem;font-weight:600;border-style:solid}
 #toast{position:fixed;left:12px;right:12px;bottom:calc(14px + env(safe-area-inset-bottom,0px));background:#24142f;color:#fff;border:2px solid var(--a);border-radius:14px;padding:12px 14px;z-index:50;text-align:center}
 @media(max-width:700px){.gs{width:108px;height:84px}.gal b{font-size:1rem}}
+body[data-sec=ext]{--p:#0b6b63;--p2:#1a8f84;--a:#ff9f1c}
+@media(prefers-color-scheme:dark){:root:not([data-th=light]) body[data-sec=ext]{--p:#5fd0c4;--p2:#3fb3a6;--hd:#0a2f2c}}
+.tabs{display:flex;gap:8px;padding-bottom:10px}
+.tabs a{flex:1;text-align:center;text-decoration:none;color:#fff;background:rgba(255,255,255,.15);border:2px solid rgba(255,255,255,.55);border-radius:14px;padding:8px 6px;font-weight:700;min-height:50px;display:flex;align-items:center;justify-content:center;line-height:1.3}
+.tabs a[aria-current=page]{background:#fff;color:#3a1a57;border-color:#fff}
+body[data-sec=ext] .tabs a[aria-current=page]{color:#07524c}
+.hero.one{grid-template-columns:1fr}
+.choose{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:22px 0 14px}
+.pick{display:flex;flex-direction:column;gap:6px;padding:20px;border-radius:22px;text-decoration:none;color:#fff;min-height:240px;border:4px solid transparent}
+.pick.use{background:#5b2a86}.pick.ext{background:#0b6b63}
+.pick .bi{font-size:3rem;line-height:1.2}.pick b{font-size:1.55rem;line-height:1.3}.pick small{font-size:1rem;opacity:.96}
+.pick .go{margin-top:auto;background:#fff;color:#24142f;border-radius:99px;padding:10px 18px;font-weight:800;align-self:flex-start}
+.qq{background:var(--c);border:2px solid var(--l);border-radius:18px;padding:12px 16px;margin:10px 0}.qq p{margin:4px 0 0}
+.ans{border-radius:18px;padding:14px 16px;margin:10px 0;text-align:center;border:3px solid}
+.ans.yes{background:#e6f6ec;color:#0d4d2a;border-color:var(--ok)}.ans.no{background:#fde8e6;color:#6b1410;border-color:#d93025}
+.ans b{display:block;font-size:1.7rem}.ans .ai{font-size:2.4rem}.ans p{margin:4px 0 0}
+.rul{display:flex;border-radius:14px;overflow:hidden;border:2px solid var(--l);margin:6px 0 12px;text-align:center;font-size:.9rem}
+.rul>div{padding:10px 8px}.r1{flex:1;background:#d9f2e3;color:#0d4d2a}.r2{flex:1.4;background:#ffe9c7;color:#5a3500}
+.hn{margin:12px 0 0;font-weight:600}
+@media(max-width:700px){.choose{grid-template-columns:1fr}.pick{min-height:0}}
 @media print{.gal,.spk,header.top,.chips,.act,.back,.help,.fs{display:none!important}body{background:#fff;color:#000}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
@@ -121,7 +141,13 @@ dialog::backdrop{background:rgba(20,8,30,.65)}
    <a class="brand" href="#" id="home">⚡ คู่มือบริการ กฟภ.</a>
    <div class="fs" aria-label="ปรับขนาดตัวอักษร"><span>ขนาดตัวอักษร</span><button id="fm" aria-label="ลดขนาดตัวอักษร">ก−</button> <button id="fp" aria-label="เพิ่มขนาดตัวอักษร">ก+</button></div>
   </div>
-  <div class="hero" id="hero">
+  <nav class="tabs" id="tabs" hidden aria-label="เลือกหมวดบริการ"><a href="#use" id="tuse">⚡ ขอใช้ไฟฟ้า</a><a href="#ext" id="text">🛣️ ขยายเขตระบบไฟฟ้า</a></nav>
+  <div class="hero one" id="lhero" hidden><div><h1>ต้องการบริการอะไร?</h1><p>เลือกหมวดที่ตรงกับเรื่องของคุณ แต่ละหมวดมีสีและหน้าแยกจากกันอย่างชัดเจน</p></div></div>
+  <div class="hero" id="xhero" hidden>
+   <div><h1>ขยายเขต<br>ระบบไฟฟ้า</h1><p>ให้ กฟภ. ขยายเสาและสายไฟไปยังที่ดินหรือบ้านที่ยังไม่มีไฟฟ้า ดูหลักเกณฑ์ เอกสาร และสิทธิ 140 เมตร</p></div>
+   <svg viewBox="0 0 320 220" role="img" aria-label="ภาพเสาไฟฟ้าที่ขยายสายไปยังบ้านหลังใหม่"><rect y="185" width="320" height="35" fill="#06403b"/><g fill="#c9a36a"><rect x="30" y="60" width="8" height="128"/><rect x="120" y="75" width="7" height="113"/><rect x="200" y="90" width="6" height="98"/><rect x="14" y="74" width="40" height="6"/><rect x="106" y="88" width="35" height="5"/><rect x="188" y="102" width="30" height="5"/></g><path d="M18 74 Q70 100 110 88 M50 74 Q85 96 142 88 M110 88 Q160 112 192 102 M142 88 Q185 108 216 102" stroke="#fff" stroke-width="2" fill="none"/><polygon points="236,150 276,150 256,122" fill="#ff9f1c"/><rect x="240" y="150" width="32" height="35" fill="#fff"/><rect x="252" y="162" width="9" height="23" fill="#1a8f84"/><path d="M216 102 L250 138" stroke="#fff" stroke-width="2" stroke-dasharray="4 4" fill="none"/><text x="258" y="112" font-size="24" text-anchor="middle">⚡</text></svg>
+  </div>
+  <div class="hero" id="hero" hidden>
    <div>
     <h1>จะขอบริการไฟฟ้า<br>เตรียมอะไรไปบ้าง?</h1>
     <p>เลือกเรื่องที่ต้องการ ดูรูปและรายการเอกสาร แล้วติ๊กทีละข้อได้เลย</p>
@@ -145,7 +171,18 @@ dialog::backdrop{background:rgba(20,8,30,.65)}
 </header>
 
 <main class="w">
- <section id="list">
+ <section id="landing" hidden>
+  <div class="choose">
+   <a class="pick use" href="#use"><span class="bi" aria-hidden="true">⚡🏠</span><b>ขอใช้ไฟฟ้า</b><small>ติดตั้งมิเตอร์ ขอเพิ่มขนาด โอนชื่อ ยกเลิกการใช้ไฟ คืนเงินประกัน และเรื่องอื่น ๆ</small><span class="go">เข้าสู่หมวดนี้ →</span></a>
+   <a class="pick ext" href="#ext"><span class="bi" aria-hidden="true">🛣️🪵</span><b>ขยายเขตระบบไฟฟ้า กฟภ.</b><small>ปักเสา พาดสาย ให้ที่ดินหรือบ้านที่ยังไม่มีไฟฟ้า รวมโครงการเกษตรกรและสิทธิ 140 เมตร</small><span class="go">เข้าสู่หมวดนี้ →</span></a>
+  </div>
+  <div class="note">💡 ไม่แน่ใจว่าต้องเลือกอันไหน? โดยทั่วไป ถ้ามีเสาไฟฟ้าหรือสายไฟอยู่ใกล้ที่ดินหรือบ้านแล้ว ให้เลือก “ขอใช้ไฟฟ้า” แต่ถ้ายังไม่มีเสาไฟฟ้าหรือสายไฟมาถึง ให้เลือก “ขยายเขตระบบไฟฟ้า” หรือโทรสอบถาม 1129</div>
+ </section>
+ <section id="extl" hidden>
+  <div class="note big">🛣️ ขยายเขตระบบไฟฟ้า คือการที่ กฟภ. ขยายเสาและสายไฟไปยังที่ดินหรือบ้านที่ยังไม่มีไฟฟ้า เลือกหัวข้อด้านล่างเพื่ออ่านหลักเกณฑ์ เอกสาร และสิทธิ 140 เมตร</div>
+  <div id="xgrid"></div>
+ </section>
+ <section id="list" hidden>
   <a class="gal" href="#photos" aria-label="ดูภาพตัวอย่างการติดตั้งระบบไฟฟ้า"><span class="gt"><b>📷 ภาพตัวอย่างการติดตั้งระบบไฟฟ้า</b><small>แตะเพื่อดูทั้งหมด 15 ภาพ พร้อมคำอธิบาย</small></span><span class="gs" id="gs" aria-hidden="true"></span></a>
   <div class="steps" aria-label="ขั้นตอนโดยรวม">
    <div class="step"><b>📋</b>เลือกเรื่อง<br><small>ดูรายการเอกสาร</small></div>
@@ -217,7 +254,32 @@ docs:["บัตรประจำตัวประชาชนของผู�
 n:["ผู้ใช้ไฟฟ้าติดต่อลงทะเบียนที่สำนักงาน PEA ในพื้นที่ทุกแห่ง"],
 sec:[{h:"หลังลงทะเบียนแล้ว ต้องรู้",l:[["🔎","PEA สงวนสิทธิ์เข้าตรวจสอบสถานที่ใช้ไฟฟ้า"],["📅","ยื่นลงทะเบียนเพื่อรักษาสิทธิ์ต่อเนื่อง ภายในวันที่ 31 มกราคม ของทุกปี"],["📣","ถ้าไม่ต้องใช้ไฟฟ้าเดินเครื่องมือทางการแพทย์แล้ว ต้องแจ้งยกเลิกกับ PEA ภายใน 30 วัน นับตั้งแต่วันที่สิ้นสุดความจำเป็น"]]},
 {h:"PEA จะยกเลิกสิทธิ์ ในกรณีเหล่านี้",tone:"bad",l:[["⛔","ค้างชำระค่าไฟฟ้ารวมกัน 3 เดือน"],["⛔","ตรวจพบการกระทำโดยมิชอบ หรือการละเมิดการใช้ไฟฟ้า"],["⛔","แจ้งข้อมูลอันเป็นเท็จ"],["⛔","ตรวจพบว่าผู้ป่วยยกเลิกการใช้เครื่องมือทางการแพทย์ แต่ไม่ได้แจ้งยกเลิกกับ PEA"]]}]});
-const EM=[["ปฏิรูปที่ดิน","🌾"],["บัตรประจำตัว","🪪"],["ใบรับรองแพทย์","🩺"],["หลักฐานแสดงตัว","🪪"],["หลักฐานแสดงสถานที่","🏠"],["มรณ","🕊️"],["บัตรประชาชน","🪪"],["บัตรทหาร","🎖️"],["ทหารผ่านศึก","🎖️"],["ทะเบียนบ้าน","🏠"],["ทะเบียนตามบัตร","🏠"],["โฉนด","📜"],["ใบเสร็จ","🧾"],["วิศวกร","👷"],["ช่าง","👷"],["สัญญา","🤝"],["หนังสือรับรอง","🏢"],["อนุญาต","🏗️"],["ถ่ายรูป","📷"],["ยินยอม","✅"],["ตาราง","📋"],["เปลี่ยนชื่อ","🔄"],["ชาร์จ","🔌"],["เกษตร","🌾"],["มอบอำนาจ","✍️"]];
+const qa=(q,ok,sub)=>`<div class="qq">❓ <b>คำถาม</b><p>${q}</p></div><div class="ans ${ok?"yes":"no"}"><span class="ai">${ok?"✅":"❌"}</span><b>คำตอบ: ${ok?"ได้":"ไม่ได้"}</b><p>${sub}</p></div>`;
+const bar=()=>'<div class="rul"><div class="r1"><b>140 เมตรแรก</b><br>กฟภ. ลงทุน 100%</div><div class="r2"><b>ส่วนที่เกิน 140 เมตร</b><br>กฟภ. 50% | ผู้ขอใช้ไฟ 50%</div></div>';
+Object.assign(S.find(x=>x.id==="line"),{area:"ext",ic:"🛣️",t:"ขอขยายเขตไฟฟ้า (เอกสารที่ต้องเตรียม)",d:"ขอให้ กฟภ. ขยายระบบไฟไปยังพื้นที่ที่ยังไม่มีไฟฟ้า"});
+S.push(
+{id:"ext-farm",area:"ext",ic:"🌾",t:"เกษตรกรไทยมีไฟฟ้าใช้ (ขยายเขตพื้นที่ทำกินทางการเกษตร คขท.3)",d:"โครงการขยายเขตไฟฟ้าให้พื้นที่ทำกินของเกษตรกรรายย่อย",ie:"🌾",
+ intro:"โครงการขยายเขตไฟฟ้า พื้นที่ทำกินทางการเกษตร (คขท.3) ตรวจหลักเกณฑ์ 5 ข้อ และเตรียมเอกสารให้ครบ",
+ docs:["สำเนาทะเบียนบ้าน","สำเนาบัตรประชาชน","สำเนาโฉนดที่ดิน หรือเอกสาร / หลักฐานสิทธิ์","แบบฟอร์มขอใช้ไฟฟ้าเพื่อการเกษตร","เอกสารรับรองจาก อบต. หรือหน่วยงานราชการ เช่น ทะเบียนเกษตรกร (เล่มเขียว)","ภาพถ่ายพื้นที่เกษตรกรรม"],nopoa:1,
+ sec:[{h:"หลักเกณฑ์ 5 ข้อ",l:[["💰","1. กฟภ. เป็นผู้ลงทุนค่าใช้จ่ายขยายเขตไฟฟ้าให้เกษตรกรรายย่อย วงเงินเฉลี่ยไม่เกิน 70,000 บาทต่อราย (แปลงที่ดิน) ถ้าเกิน 70,000 บาทต่อราย เกษตรกรผู้ใช้ไฟชำระเงินสมทบได้"],["📗","2. ผู้ใช้ไฟต้องขึ้นทะเบียนเป็นเกษตรกร โดยนำสมุดทะเบียนเกษตรกรจากหน่วยงานราชการเป็นหลักฐานยื่นคำร้อง หากทำประมงหรือเลี้ยงสัตว์ ต้องขึ้นทะเบียนกับหน่วยงานที่เกี่ยวข้อง"],["🚫","3. พื้นที่ทำกินต้องเป็นที่ดินที่ไม่อยู่ในพื้นที่หวงห้ามของทางราชการ ยกเว้นได้รับอนุญาตให้ดำเนินการขยายเขตไฟฟ้าได้"],["📜","4. ต้องมีเอกสาร/หลักฐานสิทธิ์ หรือสัญญาเช่าที่ถูกต้องตามกฎหมาย และแสดงหลักฐานการได้รับอนุญาตของราชการหรือหน่วยงานรัฐที่ครอบครองที่ดิน ทั้งนี้ต้องไม่ใช่ที่ดินที่ถือครองโดยเอกชนรายใหญ่"],["🔌","5. เป็นเกษตรกรรายย่อยที่ขอติดตั้งมิเตอร์ขนาดไม่เกิน 15(45) แอมป์ต่อราย หรือมิเตอร์ขนาด 5(100) แอมป์ต่อราย ที่ใช้กับเซอร์กิตเบรกเกอร์พิกัดปรับตั้งสูงสุดไม่เกิน 50 แอมป์ต่อราย"]]}],
+ img:["ph-farm","ภาพต้นฉบับ: เกษตรกรไทยมีไฟฟ้าใช้ (คขท.3)"],src:"ที่มา: สื่อประชาสัมพันธ์ PEA (www.pea.co.th โทร 1129)"},
+{id:"ext-pole",area:"ext",ic:"🏡",t:"ปักเสา พาดสาย ให้บ้านเรือนราษฎรรายใหม่ (ระยะที่ 3)",d:"โครงการขยายเขตไฟฟ้าด้วยวิธีปักเสา พาดสาย ให้บ้านเรือนราษฎรรายใหม่",ie:"🏡",
+ intro:"โครงการขยายเขตไฟฟ้าด้วยวิธีปักเสา พาดสายให้บ้านเรือนราษฎรรายใหม่ ระยะที่ 3 บ้านที่จะเข้าโครงการต้องผ่านหลักเกณฑ์ทั้ง 7 ข้อ",docs:[],nopoa:1,
+ sec:[{h:"หลักเกณฑ์ 7 ข้อ",l:[["💰","1. ค่าใช้จ่ายเฉลี่ยการขยายเขตฯ ไม่เกิน 75,000 บาทต่อครัวเรือน (กฟภ. รับผิดชอบ)"],["🏠","2. เป็นบ้านที่อยู่อาศัยถาวร มีผู้อยู่อาศัย มีบ้านเลขที่ มีทะเบียนบ้านถาวรหรือชั่วคราว"],["🚫","3. ต้องไม่อยู่ในพื้นที่หวงห้ามใด ๆ ของทางราชการ ยกเว้นได้รับความยินยอมเป็นลายลักษณ์อักษรจากส่วนราชการ รัฐวิสาหกิจ และหน่วยงานของรัฐที่ถือกรรมสิทธิ์ในที่ดินที่บ้านในทะเบียนบ้านชั่วคราวนั้น ๆ ตั้งอยู่"],["🏘️","4. ไม่ตั้งอยู่ในพื้นที่โครงการบ้านจัดสรร ตึกแถว อาคารพาณิชย์"],["🛣️","5. ต้องมีเส้นทางคมนาคมสาธารณะ"],["📟","6. หลังจาก กฟภ. ขยายเขตการใช้ไฟฟ้าแล้ว ผู้ใช้ไฟต้องเป็นผู้ออกค่าใช้จ่ายในส่วนของมิเตอร์ไฟฟ้า"],["🏛️","7. เป็นบ้านที่ได้รับการจัดตั้งหรือการสนับสนุนโดยหน่วยงานของรัฐ"]]}],
+ img:["ph-pole","ภาพต้นฉบับ: ขยายเขตไฟฟ้าด้วยวิธีปักเสา พาดสาย ระยะที่ 3"],src:"ที่มา: สื่อประชาสัมพันธ์ PEA (www.pea.co.th โทร 1129)"},
+{id:"ext-q21",area:"ext",ic:"🧮",t:"งานรวมกลุ่ม ใช้งบ I/C ฟรี 140 เมตร (คำถาม 2.1)",d:"รวมบ้านหลายครัวเรือน แล้วคิด 140 เมตรต่อครัวเรือนใน 1 งาน ได้หรือไม่",docs:[],nopoa:1,
+ top:qa("กรณีใช้งบ I/C ฟรี 140 เมตร รวมบ้านหลายครัวเรือนแล้วคิด 140 เมตรต่อครัวเรือนใน 1 งานได้หรือไม่ (เช่น ผู้ใช้ไฟ 3 ราย คิดเป็น 140 × 3 = 420 เมตร)",false,"งานขยายเขตแรงต่ำแบบรวมกลุ่ม โดยใช้งบ I/C ถือเป็นการเปิดงานขยายเขต 1 งาน กฟภ. ลงทุนเฉพาะ 140 เมตรแรกเท่านั้น")+'<h3 class="s">ดูให้เห็นภาพ</h3><p>รวมกลุ่ม 3 ราย นับเป็น <b>1 งาน</b> ได้สิทธิ์ 140 เมตรแรกเพียงครั้งเดียว</p>'+bar(),
+ sec:[{h:"สรุปให้ปฏิบัติ",l:[["📋","งานรวมกลุ่ม นับเป็น 1 งาน"],["📏","ได้สิทธิ I/C เพียง 140 เมตรแรก ไม่คูณตามจำนวนครัวเรือน"],["⚖️","ส่วนเกิน 140 เมตร แบ่งค่าใช้จ่าย กฟภ. 50% และผู้ขอใช้ไฟ 50%"]]}],
+ img:["ph-ic21","ภาพต้นฉบับ: คำถามที่ 2.1"],src:"ที่มา (ตามภาพ): บันทึกเวียนตอบข้อหารือระเบียบหลักเกณฑ์งานขยายเขตให้ผู้ใช้ไฟ (ลว. 15 ก.ค. 2563)"},
+{id:"ext-q22",area:"ext",ic:"🧾",t:"รวมสิทธิ 140 เมตรไม่ได้ แต่ละครัวเรือนใช้สิทธิเองได้ไหม (คำถาม 2.2)",d:"ถ้ารวม 140 เมตรต่อครัวเรือนในงานเดียวไม่ได้ ใช้สิทธิเป็นรายครัวเรือนได้หรือไม่",docs:[],nopoa:1,
+ top:qa("ถ้ารวมสิทธิ 140 เมตรต่อครัวเรือนในงานเดียวไม่ได้ ผู้ใช้ไฟแต่ละครัวเรือนยังใช้สิทธิของตนเองเป็นรายครัวเรือนได้หรือไม่",true,"แต่ละครัวเรือนใช้สิทธิ 140 เมตรแรกของตนเองได้ แต่ต้องขออนุมัติและก่อสร้างทีละงาน")+'<h3 class="s">ดูให้เห็นภาพ</h3>'+[1,2,3].map(n=>`<p class="hn">🏠 ครัวเรือนที่ ${n} <small>(อนุมัติลำดับที่ ${n})</small></p>`+bar()).join(""),
+ sec:[{h:"ลำดับการดำเนินการ (อนุมัติได้ครั้งละ 1 งาน)",l:[["1️⃣","ขออนุมัติและก่อสร้างครัวเรือนที่ 1 ให้แล้วเสร็จก่อน"],["2️⃣","จากนั้นจึงขออนุมัติครัวเรือนที่ 2 และก่อสร้างให้แล้วเสร็จ"],["3️⃣","แล้วจึงขออนุมัติครัวเรือนที่ 3 ต่อไป"],["🚫","ไม่ใช่การอนุมัติแยกแฟ้มพร้อมกันหลายครัวเรือน (ตามภาพต้นฉบับ)"]]},
+ {h:"คำตอบตามเอกสาร",l:[["💰","กรณีค่าใช้จ่ายขยายเขตเกิน 75,000 บาทต่อครัวเรือน"],["🏠","กฟภ. ลงทุนให้ระยะ 140 เมตรแรก ต่อ 1 ครัวเรือน"],["⚖️","ส่วนที่เกิน 140 เมตร กฟภ. และผู้ใช้ไฟร่วมลงทุนฝ่ายละครึ่ง"],["📄","อ้างอิงหนังสือลงวันที่ 23 มีนาคม 2563 และ 9 มีนาคม 2563 (ดูรายละเอียดในภาพต้นฉบับ)"]]},
+ {h:"อีกแนวทางหนึ่ง",l:[["💡","ครัวเรือนที่ 1–2 ร่วมกันสมทบส่วนที่เกิน 140 เมตรได้ (อ่านรายละเอียดในภาพต้นฉบับ)"]]},
+ {h:"สรุปให้ปฏิบัติ",l:[["✅","ใช้สิทธิรายครัวเรือนได้"],["🔢","ต้องอนุมัติและก่อสร้างทีละงาน ตามลำดับ"],["🤝","ส่วนเกิน 140 เมตรของแต่ละครัวเรือน ร่วมลงทุน 50:50 ระหว่าง กฟภ. กับผู้ขอใช้ไฟ"]]}],
+ img:["ph-ic22","ภาพต้นฉบับ: คำถามที่ 2.2"],src:"ที่มา (ตามภาพ): สื่อให้ความรู้ “ช่างไฟฟ้าส่วนภูมิภาค”"}
+);
+const EM=[["ภาพถ่าย","📷"],["ปฏิรูปที่ดิน","🌾"],["บัตรประจำตัว","🪪"],["ใบรับรองแพทย์","🩺"],["หลักฐานแสดงตัว","🪪"],["หลักฐานแสดงสถานที่","🏠"],["มรณ","🕊️"],["บัตรประชาชน","🪪"],["บัตรทหาร","🎖️"],["ทหารผ่านศึก","🎖️"],["ทะเบียนบ้าน","🏠"],["ทะเบียนตามบัตร","🏠"],["โฉนด","📜"],["ใบเสร็จ","🧾"],["วิศวกร","👷"],["ช่าง","👷"],["สัญญา","🤝"],["หนังสือรับรอง","🏢"],["อนุญาต","🏗️"],["ถ่ายรูป","📷"],["ยินยอม","✅"],["ตาราง","📋"],["เปลี่ยนชื่อ","🔄"],["ชาร์จ","🔌"],["เกษตร","🌾"],["มอบอำนาจ","✍️"]];
 const em=s=>(EM.find(e=>s.includes(e[0]))||[0,"📄"])[1];
 const $=s=>document.querySelector(s);
 const SPKBOX='<div class="spkbox"><b>🌾 เอกสารพิเศษสำหรับที่ดิน ส.ป.ก.</b><p>“หนังสือยินยอมหรืออนุญาตให้ใช้ที่ดินในเขตปฏิรูปที่ดิน” ออกโดยสำนักงานการปฏิรูปที่ดินเพื่อเกษตรกรรม (ส.ป.ก.) หรือสำนักงานปฏิรูปที่ดินจังหวัด ใช้ยื่นประกอบการขอใช้ไฟที่ กฟภ.</p><div class="act"><button class="btn" id="sv">👁️ ดูตัวอย่างหนังสือยินยอม</button><a class="btn" href="spk-letter.pdf" target="_blank" rel="noopener">📄 เปิดหนังสือ ส.ป.ก. ถึง กฟภ. (PDF)</a></div></div>';
@@ -241,9 +303,9 @@ function copy(t){const ok=()=>toast("คัดลอกเลขบัญชี�
  if(navigator.clipboard&&window.isSecureContext)navigator.clipboard.writeText(t).then(ok,old);else old()}
 const ALL=PH.flatMap(g=>g.im);
 function renderGallery(){
- $("#gal").innerHTML='<button class="back" id="gb">← กลับหน้าแรก</button><div class="dh"><span class="ic" aria-hidden="true">📷</span><div><h2>ภาพตัวอย่างการติดตั้งระบบไฟฟ้า</h2><p>เลื่อนซ้าย-ขวาดูรูปต่อไป แตะรูปเพื่อขยาย</p></div></div>'+
+ $("#gal").innerHTML='<button class="back" id="gb">← กลับ ขอใช้ไฟฟ้า</button><div class="dh"><span class="ic" aria-hidden="true">📷</span><div><h2>ภาพตัวอย่างการติดตั้งระบบไฟฟ้า</h2><p>เลื่อนซ้าย-ขวาดูรูปต่อไป แตะรูปเพื่อขยาย</p></div></div>'+
  PH.map(g=>`<h3 class="s ${g.tone||""}">${g.k} ${g.t}</h3><p>${g.d}</p>`+(g.acc?ACC:`<div class="strip${g.im.length<2?" one":""}">${g.im.map(m=>`<figure><img loading="lazy" src="ph-${m[0]}.jpg" alt="${m[1]}" data-f="${m[0]}" data-c="${m[1]}"><figcaption>${m[1]}</figcaption></figure>`).join("")}</div>`)).join("");
- $("#gb").onclick=()=>{location.hash=""};
+ $("#gb").onclick=()=>{location.hash="use"};
 }
 $("#gal").onclick=e=>{const c=e.target.closest("[data-copy]");if(c){copy(c.dataset.copy);return}const m=e.target.closest("img[data-f]");if(m){$("#lbi").className="";$("#lbi").src="ph-"+m.dataset.f+".jpg";$("#lbi").alt=m.dataset.c;$("#lbt").textContent=m.dataset.c;$("#lb").showModal()}};
 $("#lx").onclick=()=>$("#lb").close();
@@ -295,27 +357,33 @@ function renderChips(){
 }
 function renderGrid(){
  const q=$("#q").value.trim();
- const r=S.filter(s=>(cat==="ทั้งหมด"||s.cat===cat)&&(!q||(s.t+s.d+s.docs.join()).includes(q)));
+ const r=S.filter(s=>!s.area&&(cat==="ทั้งหมด"||s.cat===cat)&&(!q||(s.t+s.d+s.docs.join()).includes(q)));
  $("#grid").innerHTML=r.map(s=>`<button class="card" data-id="${s.id}"><span class="ic" aria-hidden="true">${s.ic}</span><span><h3>${s.t}</h3><p>${s.d}</p></span></button>`).join("");
  $("#empty").hidden=r.length>0;
 }
+const XG=[{h:"🛣️ ขอให้ กฟภ. ขยายเขตไฟฟ้า",ids:["line"]},{h:"🏡 โครงการขยายเขตไฟฟ้าของ กฟภ.",ids:["ext-farm","ext-pole"]},{h:"📏 สิทธิ 140 เมตร (ถาม-ตอบ)",ids:["ext-q21","ext-q22"]}];
+function renderExt(){
+ $("#xgrid").innerHTML=XG.map(g=>`<h3 class="s">${g.h}</h3><div class="grid">${g.ids.map(i=>S.find(x=>x.id===i)).map(s=>`<button class="card" data-id="${s.id}"><span class="ic" aria-hidden="true">${s.ic}</span><span><h3>${s.t}</h3><p>${s.d}</p></span></button>`).join("")}</div>`).join("");
+}
+$("#xgrid").onclick=e=>{const b=e.target.closest("[data-id]");if(b)location.hash=b.dataset.id};
 function renderDetail(s){
- const intro=s.intro?`<div class="note big">🏥 ${s.intro}</div>${s.doc?`<div class="act"><a class="btn" href="${s.doc[0]}" target="_blank" rel="noopener">📄 ${s.doc[1]}</a></div>`:""}`:"";
+ const hasD=s.docs.length>0,imgb=s.img?`<div class="act"><button class="btn" id="vi">🖼️ ดูภาพต้นฉบับ (แตะเพื่อขยาย)</button></div>`:"";
+ const intro=s.intro?`<div class="note big">${s.ie||"🏥"} ${s.intro}</div>${s.doc?`<div class="act"><a class="btn" href="${s.doc[0]}" target="_blank" rel="noopener">📄 ${s.doc[1]}</a></div>`:""}`:"";
  const sec=(s.sec||[]).map(x=>`<h3 class="s ${x.tone||""}">${x.h}</h3><ul class="list">${x.l.map(m=>`<li><span class="e" aria-hidden="true">${m[0]}</span><span>${m[1]}</span></li>`).join("")}</ul>`).join("");
  const poa=s.poa2||POA, saved=st("pea-"+s.id)||[];
  const w=s.w?`<h3 class="s">งานเดินสายที่ช่างต้องทำ</h3><ul class="list">${s.w.map(x=>`<li><span class="e" aria-hidden="true">${x[0]}</span><span><b>${x[1]}</b><small>${x[2]}</small></span></li>`).join("")}</ul>`:"";
  const fee=s.fee&&s.fee.length?`<h3 class="s">ค่าใช้จ่าย</h3>${s.fee.map(f=>`<div class="fee">💵 ${f}</div>`).join("")}`:"";
  const n=s.n&&s.n.length?`<h3 class="s">ควรรู้</h3>${s.n.map(x=>`<div class="note">💡 ${x}</div>`).join("")}`:"";
- $("#detail").innerHTML=`<button class="back" id="bk">← กลับไปเลือกเรื่องอื่น</button>
+ $("#detail").innerHTML=`<button class="back" id="bk">← กลับไปเลือกเรื่องอื่น (${s.area==="ext"?"ขยายเขตระบบไฟฟ้า":"ขอใช้ไฟฟ้า"})</button>
  <div class="dh"><span class="ic" aria-hidden="true">${s.ic}</span><div><h2>${s.t}</h2><p>${s.d}</p></div></div>
- ${intro}${w}
- <h3 class="s">เอกสารที่ต้องเตรียม <small id="pc"></small></h3>
+ ${intro}${s.top||""}${imgb}${w}
+ ${hasD?`<h3 class="s">เอกสารที่ต้องเตรียม <small id="pc"></small></h3>
  <div class="prog" role="progressbar" aria-valuemin="0" aria-valuemax="100"><i id="pb"></i></div>
- <ul class="list" id="dl">${s.docs.map((d,i)=>`<li id="li${i}"><label><input type="checkbox" data-i="${i}" ${saved.includes(i)?"checked":""}><span class="e" aria-hidden="true">${em(d)}</span><span class="tx">${d}</span></label>${SP}</li>`).join("")}</ul>
- ${s.spk?SPKBOX:""}${s.box||""}${fee}${n}${sec}
- <h3 class="s">ถ้าให้คนอื่นไปทำแทน</h3>
- <details class="poa"><summary>ดูเอกสารเพิ่มเติม (กรณีมอบอำนาจ)</summary><ul class="list">${poa.map(d=>`<li><span class="e" aria-hidden="true">${em(d)}</span><span class="tx" style="flex:1">${d}</span>${SP}</li>`).join("")}</ul></details>
- <div class="act"><button class="btn" id="ra">🔊 อ่านออกเสียงทั้งหมด</button><button class="btn" id="pr">🖨️ พิมพ์รายการนี้</button><button class="btn" id="rs">↺ ล้างเครื่องหมาย</button></div>`;
+ <ul class="list" id="dl">${s.docs.map((d,i)=>`<li id="li${i}"><label><input type="checkbox" data-i="${i}" ${saved.includes(i)?"checked":""}><span class="e" aria-hidden="true">${em(d)}</span><span class="tx">${d}</span></label>${SP}</li>`).join("")}</ul>`:""}
+ ${s.spk?SPKBOX:""}${s.box||""}${fee}${n}${sec}${s.src?`<p class="cap2">${s.src}</p>`:""}
+ ${hasD&&!s.nopoa?`<h3 class="s">ถ้าให้คนอื่นไปทำแทน</h3>
+ <details class="poa"><summary>ดูเอกสารเพิ่มเติม (กรณีมอบอำนาจ)</summary><ul class="list">${poa.map(d=>`<li><span class="e" aria-hidden="true">${em(d)}</span><span class="tx" style="flex:1">${d}</span>${SP}</li>`).join("")}</ul></details>`:""}
+ <div class="act">${hasD?'<button class="btn" id="ra">🔊 อ่านออกเสียงทั้งหมด</button>':""}<button class="btn" id="pr">🖨️ พิมพ์รายการนี้</button>${hasD?'<button class="btn" id="rs">↺ ล้างเครื่องหมาย</button>':""}</div>`;
  const upd=()=>{
   const bs=[...document.querySelectorAll("#dl input")],ds=bs.filter(b=>b.checked).length,p=Math.round(ds/bs.length*100);
   bs.forEach(b=>b.closest("li").classList.toggle("done",b.checked));
@@ -323,19 +391,25 @@ function renderDetail(s){
   $("#pc").textContent=`(ครบ ${ds} จาก ${bs.length})`;
   st("pea-"+s.id,bs.map((b,i)=>b.checked?i:-1).filter(i=>i>=0));
  };
- $("#dl").onchange=upd;upd();
- $("#bk").onclick=()=>{location.hash=""};
+ if(hasD){$("#dl").onchange=upd;upd()}
+ $("#bk").onclick=()=>{location.hash=s.area==="ext"?"ext":"use"};
+ const vi=$("#vi");if(vi)vi.onclick=()=>{const i=$("#lbi");i.className="";i.src=s.img[0]+".jpg";i.alt=s.img[1];$("#lbt").textContent=s.img[1];$("#lb").showModal()};
  $("#pr").onclick=()=>print();
- $("#ra").onclick=e=>sayAll(e.currentTarget);
+ const ra=$("#ra");if(ra)ra.onclick=e=>sayAll(e.currentTarget);
  const lv=$("#lv");if(lv)lv.onclick=()=>{const i=$("#lbi");i.className="wide";i.src="ph-load.jpg";i.alt="ตัวอย่างตารางโหลด";$("#lbt").textContent="ตัวอย่างตารางโหลด (เลื่อน/ถ่างนิ้วเพื่อขยาย)";$("#lb").showModal()};
  const sv=$("#sv");if(sv)sv.onclick=()=>{const d=$("#dlg");if(d.showModal)d.showModal();else alert("เบราว์เซอร์นี้เปิดหน้าต่างตัวอย่างไม่ได้ กรุณากดเปิดไฟล์ PDF แทน")};
  $("#detail").onclick=e=>{const b=e.target.closest(".spk");if(b)say(b.closest("li").querySelector(".tx").textContent,b)};
- $("#rs").onclick=()=>{document.querySelectorAll("#dl input").forEach(b=>b.checked=false);upd()};
+ const rs=$("#rs");if(rs)rs.onclick=()=>{document.querySelectorAll("#dl input").forEach(b=>b.checked=false);upd()};
 }
 function route(){
- const id=location.hash.slice(1),s=S.find(x=>x.id===id);
- const ph=id==="photos";$("#list").hidden=!!s||ph;$("#hero").hidden=!!s||ph;$("#detail").hidden=!s;$("#gal").hidden=!ph;
- if(s)renderDetail(s);if(ph)renderGallery();
+ const id=location.hash.slice(1),s=S.find(x=>x.id===id),ph=id==="photos",ux=id==="use",xt=id==="ext";
+ const area=s?(s.area||"use"):(ph||ux)?"use":xt?"ext":"";
+ document.body.dataset.sec=area;
+ $("#landing").hidden=!!area;$("#lhero").hidden=!!area;$("#tabs").hidden=!area;
+ $("#tuse").setAttribute("aria-current",area==="use"?"page":"false");$("#text").setAttribute("aria-current",area==="ext"?"page":"false");
+ $("#hero").hidden=!ux;$("#list").hidden=!ux;$("#xhero").hidden=!xt;$("#extl").hidden=!xt;
+ $("#detail").hidden=!s;$("#gal").hidden=!ph;
+ if(s)renderDetail(s);if(ph)renderGallery();if(xt)renderExt();
  stopSay();if($("#dlg").open)$("#dlg").close();if($("#lb").open)$("#lb").close();window.scrollTo(0,0);
 }
 $("#chips").onclick=e=>{const c=e.target.dataset.c;if(c){cat=c;renderChips();renderGrid()}};
