@@ -132,6 +132,7 @@ body[data-sec=ext] .tabs a[aria-current=page]{color:#07524c}
 .choose{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:22px 0 14px}
 .pick{display:flex;flex-direction:column;gap:6px;padding:20px;border-radius:22px;text-decoration:none;color:#fff;min-height:240px;border:4px solid transparent}
 .pick.use{background:#5b2a86}.pick.ext{background:#0b6b63}
+.pick svg.bi{display:block;align-self:flex-start;width:170px;height:79px;margin-bottom:-2px}
 .pick .bi{font-size:3rem;line-height:1.2}.pick b{font-size:1.55rem;line-height:1.3}.pick small{font-size:1rem;opacity:.96}
 .pick .go{margin-top:auto;background:#fff;color:#24142f;border-radius:99px;padding:10px 18px;font-weight:800;align-self:flex-start}
 .qq{background:var(--c);border:2px solid var(--l);border-radius:18px;padding:12px 16px;margin:10px 0}.qq p{margin:4px 0 0}
@@ -186,7 +187,7 @@ body[data-sec=ext] .tabs a[aria-current=page]{color:#07524c}
  <section id="landing" hidden>
   <div class="choose">
    <a class="pick use" href="#use"><span class="bi" aria-hidden="true">⚡🏠</span><b>ขอใช้ไฟฟ้า</b><small>ติดตั้งมิเตอร์ ขอเพิ่มขนาด โอนชื่อ ยกเลิกการใช้ไฟ คืนเงินประกัน และเรื่องอื่น ๆ</small><span class="go">เข้าสู่หมวดนี้ →</span></a>
-   <a class="pick ext" href="#ext"><span class="bi" aria-hidden="true">🛣️🪵</span><b>ขยายเขตระบบไฟฟ้า กฟภ.</b><small>ปักเสา พาดสาย ให้ที่ดินหรือบ้านที่ยังไม่มีไฟฟ้า รวมโครงการเกษตรกรและสิทธิ 140 เมตร</small><span class="go">เข้าสู่หมวดนี้ →</span></a>
+   <a class="pick ext" href="#ext"><svg class="bi" viewBox="0 0 150 70" width="150" height="70" aria-hidden="true"><path d="M0 62H150" stroke="#9fe3da" stroke-width="3"/><g fill="#e8c88f"><rect x="14" y="14" width="5" height="48"/><rect x="62" y="22" width="5" height="40"/><rect x="6" y="20" width="21" height="4"/><rect x="54" y="28" width="21" height="4"/></g><path d="M10 22Q38 38 58 30M24 22Q44 36 72 30M58 30Q88 44 104 38" stroke="#fff" stroke-width="2" fill="none"/><polygon points="104,52 130,52 117,34" fill="#ffc400"/><rect x="108" y="52" width="18" height="10" fill="#fff"/><rect x="115" y="55" width="5" height="7" fill="#0b6b63"/><path d="M104 38L112 48" stroke="#fff" stroke-width="2" stroke-dasharray="3 3"/><text x="132" y="24" font-size="18">⚡</text></svg><b>ขยายเขตระบบไฟฟ้า กฟภ.</b><small>ปักเสา พาดสาย ให้ที่ดินหรือบ้านที่ยังไม่มีไฟฟ้า รวมโครงการเกษตรกรและสิทธิ 140 เมตร</small><span class="go">เข้าสู่หมวดนี้ →</span></a>
   </div>
   <div class="note">💡 ไม่แน่ใจว่าต้องเลือกอันไหน? โดยทั่วไป ถ้ามีเสาไฟฟ้าหรือสายไฟอยู่ใกล้ที่ดินหรือบ้านแล้ว ให้เลือก “ขอใช้ไฟฟ้า” แต่ถ้ายังไม่มีเสาไฟฟ้าหรือสายไฟมาถึง ให้เลือก “ขยายเขตระบบไฟฟ้า” หรือโทรสอบถาม 1129</div>
  </section>
@@ -295,7 +296,7 @@ S.push(
  {h:"สรุปให้ปฏิบัติ",l:[["✅","ใช้สิทธิรายครัวเรือนได้"],["🔢","ต้องอนุมัติและก่อสร้างทีละงาน ตามลำดับ"],["🤝","ส่วนเกิน 140 เมตรของแต่ละครัวเรือน ร่วมลงทุน 50:50 ระหว่าง กฟภ. กับผู้ขอใช้ไฟ"]]}],
  img:["ph-ic22","ภาพต้นฉบับ: คำถามที่ 2.2"],src:"ที่มา (ตามภาพ): สื่อให้ความรู้ “ช่างไฟฟ้าส่วนภูมิภาค”"}
 );
-const EM=[["ภาพถ่าย","📷"],["ปฏิรูปที่ดิน","🌾"],["บัตรประจำตัว","🪪"],["ใบรับรองแพทย์","🩺"],["หลักฐานแสดงตัว","🪪"],["หลักฐานแสดงสถานที่","🏠"],["มรณ","🕊️"],["บัตรประชาชน","🪪"],["บัตรทหาร","🎖️"],["ทหารผ่านศึก","🎖️"],["ทะเบียนบ้าน","🏠"],["ทะเบียนตามบัตร","🏠"],["โฉนด","📜"],["ใบเสร็จ","🧾"],["วิศวกร","👷"],["ช่าง","👷"],["สัญญา","🤝"],["หนังสือรับรอง","🏢"],["อนุญาต","🏗️"],["ถ่ายรูป","📷"],["ยินยอม","✅"],["ตาราง","📋"],["เปลี่ยนชื่อ","🔄"],["ชาร์จ","🔌"],["เกษตร","🌾"],["มอบอำนาจ","✍️"]];
+const EM=[["ภาพถ่าย","📷"],["ปฏิรูปที่ดิน","🌾"],["บัตรประจำตัว","🆔"],["ใบรับรองแพทย์","🏥"],["หลักฐานแสดงตัว","🆔"],["หลักฐานแสดงสถานที่","🏠"],["มรณ","🕊️"],["บัตรประชาชน","🆔"],["บัตรทหาร","🎖️"],["ทหารผ่านศึก","🎖️"],["ทะเบียนบ้าน","🏠"],["ทะเบียนตามบัตร","🏠"],["โฉนด","📜"],["ใบเสร็จ","🧾"],["วิศวกร","👷"],["ช่าง","👷"],["สัญญา","🤝"],["หนังสือรับรอง","🏢"],["อนุญาต","🏗️"],["ถ่ายรูป","📷"],["ยินยอม","✅"],["ตาราง","📋"],["เปลี่ยนชื่อ","🔄"],["ชาร์จ","🔌"],["เกษตร","🌾"],["มอบอำนาจ","✍️"]];
 const em=s=>(EM.find(e=>s.includes(e[0]))||[0,"📄"])[1];
 const $=s=>document.querySelector(s);
 const SPKBOX='<div class="spkbox"><b>🌾 เอกสารพิเศษสำหรับที่ดิน ส.ป.ก.</b><p>“หนังสือยินยอมหรืออนุญาตให้ใช้ที่ดินในเขตปฏิรูปที่ดิน” ออกโดยสำนักงานการปฏิรูปที่ดินเพื่อเกษตรกรรม (ส.ป.ก.) หรือสำนักงานปฏิรูปที่ดินจังหวัด ใช้ยื่นประกอบการขอใช้ไฟที่ กฟภ.</p><div class="act"><button class="btn" id="sv">👁️ ดูตัวอย่างหนังสือยินยอม</button><a class="btn" href="spk-letter.pdf" target="_blank" rel="noopener">📄 เปิดหนังสือ ส.ป.ก. ถึง กฟภ. (PDF)</a></div></div>';
