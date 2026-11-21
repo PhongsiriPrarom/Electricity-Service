@@ -2,6 +2,7 @@
 <html lang="th">
 <head>
 <meta charset="utf-8">
+<link rel="icon" href="mascot.jpg">
 <meta name="referrer" content="no-referrer">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>คู่มือขอใช้บริการ กฟภ. — เตรียมเอกสารให้ครบ ไปครั้งเดียวจบ</title>
@@ -143,7 +144,18 @@ body[data-sec=ext] .tabs a[aria-current=page]{color:#07524c}
 .rul>div{padding:10px 8px}.r1{flex:1;background:#d9f2e3;color:#0d4d2a}.r2{flex:1.4;background:#ffe9c7;color:#5a3500}
 .hn{margin:12px 0 0;font-weight:600}
 @media(max-width:700px){.choose{grid-template-columns:1fr}.pick{min-height:0}}
-@media print{.gal,.spk,header.top,.chips,.act,.back,.help,.fs{display:none!important}body{background:#fff;color:#000}}
+.ico{display:block;width:42px;height:42px;margin:0 auto}
+.mk{width:42px;height:42px;border-radius:50%;object-fit:cover;vertical-align:middle;margin-right:8px;border:2px solid #fff;background:#5b2a86}
+#lhero{grid-template-columns:1fr auto;gap:14px}
+.mhero{width:190px;height:190px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 4px rgba(255,255,255,.75),0 6px 18px rgba(0,0,0,.35)}
+.mban{margin:6px 0 18px;text-align:center}.mban img{display:block;margin:0 auto;max-width:100%;width:500px;height:auto;border-radius:18px;border:3px solid var(--l)}.mban p{margin:8px 0 0;color:var(--m);font-size:.92rem}
+.tip{display:flex;gap:14px;align-items:flex-start;margin:18px 0 4px}
+.tip img{flex:none;width:72px;height:72px;border-radius:50%;object-fit:cover;border:3px solid var(--a);background:#fff}
+.tip img.ev{border-radius:16px;object-fit:contain;border-color:var(--l)}
+.bub{position:relative;background:var(--c);border:2px solid var(--p2);border-radius:18px;padding:10px 14px;font-weight:600}
+.bub:before{content:"";position:absolute;left:-10px;top:24px;width:14px;height:14px;background:var(--c);border-left:2px solid var(--p2);border-bottom:2px solid var(--p2);transform:rotate(45deg)}
+@media(max-width:700px){.mhero{width:108px;height:108px}.tip img{width:60px;height:60px}}
+@media print{.tip,.mban,.spk,header.top,.chips,.act,.back,.help,.fs{display:none!important}body{background:#fff;color:#000}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 </head>
@@ -151,11 +163,11 @@ body[data-sec=ext] .tabs a[aria-current=page]{color:#07524c}
 <header class="top">
  <div class="w">
   <div class="bar">
-   <a class="brand" href="#" id="home">⚡ คู่มือบริการ กฟภ.</a>
+   <a class="brand" href="#" id="home"><img class="mk" src="mascot.jpg" alt="" width="42" height="42">คู่มือบริการ กฟภ.</a>
    <div class="fs" aria-label="ปรับขนาดตัวอักษร"><span>ขนาดตัวอักษร</span><button id="fm" aria-label="ลดขนาดตัวอักษร">ก−</button> <button id="fp" aria-label="เพิ่มขนาดตัวอักษร">ก+</button></div>
   </div>
   <nav class="tabs" id="tabs" hidden aria-label="เลือกหมวดบริการ"><a href="#use" id="tuse">⚡ ขอใช้ไฟฟ้า</a><a href="#ext" id="text">🛣️ ขยายเขตระบบไฟฟ้า</a></nav>
-  <div class="hero one" id="lhero" hidden><div><h1>ต้องการบริการอะไร?</h1><p>เลือกหมวดที่ตรงกับเรื่องของคุณ แต่ละหมวดมีสีและหน้าแยกจากกันอย่างชัดเจน</p></div></div>
+  <div class="hero" id="lhero" hidden><div><h1>ต้องการบริการอะไร?</h1><p>เลือกหมวดที่ตรงกับเรื่องของคุณ แต่ละหมวดมีสีและหน้าแยกจากกันอย่างชัดเจน</p></div><img class="mhero" src="mascot.jpg" alt="Watt-D มาสคอตของ PEA"></div>
   <div class="hero" id="xhero" hidden>
    <div><h1>ขยายเขต<br>ระบบไฟฟ้า</h1><p>ให้ กฟภ. ขยายเสาและสายไฟไปยังที่ดินหรือบ้านที่ยังไม่มีไฟฟ้า ดูหลักเกณฑ์ เอกสาร และสิทธิ 140 เมตร</p></div>
    <svg viewBox="0 0 320 220" role="img" aria-label="ภาพเสาไฟฟ้าที่ขยายสายไปยังบ้านหลังใหม่"><rect y="185" width="320" height="35" fill="#06403b"/><g fill="#c9a36a"><rect x="30" y="60" width="8" height="128"/><rect x="120" y="75" width="7" height="113"/><rect x="200" y="90" width="6" height="98"/><rect x="14" y="74" width="40" height="6"/><rect x="106" y="88" width="35" height="5"/><rect x="188" y="102" width="30" height="5"/></g><path d="M18 74 Q70 100 110 88 M50 74 Q85 96 142 88 M110 88 Q160 112 192 102 M142 88 Q185 108 216 102" stroke="#fff" stroke-width="2" fill="none"/><polygon points="236,150 276,150 256,122" fill="#ff9f1c"/><rect x="240" y="150" width="32" height="35" fill="#fff"/><rect x="252" y="162" width="9" height="23" fill="#1a8f84"/><path d="M216 102 L250 138" stroke="#fff" stroke-width="2" stroke-dasharray="4 4" fill="none"/><text x="258" y="112" font-size="24" text-anchor="middle">⚡</text></svg>
@@ -190,6 +202,7 @@ body[data-sec=ext] .tabs a[aria-current=page]{color:#07524c}
    <a class="pick ext" href="#ext"><svg class="bi" viewBox="0 0 150 70" width="150" height="70" aria-hidden="true"><path d="M0 62H150" stroke="#9fe3da" stroke-width="3"/><g fill="#e8c88f"><rect x="14" y="14" width="5" height="48"/><rect x="62" y="22" width="5" height="40"/><rect x="6" y="20" width="21" height="4"/><rect x="54" y="28" width="21" height="4"/></g><path d="M10 22Q38 38 58 30M24 22Q44 36 72 30M58 30Q88 44 104 38" stroke="#fff" stroke-width="2" fill="none"/><polygon points="104,52 130,52 117,34" fill="#ffc400"/><rect x="108" y="52" width="18" height="10" fill="#fff"/><rect x="115" y="55" width="5" height="7" fill="#0b6b63"/><path d="M104 38L112 48" stroke="#fff" stroke-width="2" stroke-dasharray="3 3"/><text x="132" y="24" font-size="18">⚡</text></svg><b>ขยายเขตระบบไฟฟ้า กฟภ.</b><small>ปักเสา พาดสาย ให้ที่ดินหรือบ้านที่ยังไม่มีไฟฟ้า รวมโครงการเกษตรกรและสิทธิ 140 เมตร</small><span class="go">เข้าสู่หมวดนี้ →</span></a>
   </div>
   <div class="note">💡 ไม่แน่ใจว่าต้องเลือกอันไหน? โดยทั่วไป ถ้ามีเสาไฟฟ้าหรือสายไฟอยู่ใกล้ที่ดินหรือบ้านแล้ว ให้เลือก “ขอใช้ไฟฟ้า” แต่ถ้ายังไม่มีเสาไฟฟ้าหรือสายไฟมาถึง ให้เลือก “ขยายเขตระบบไฟฟ้า” หรือโทรสอบถาม 1129</div>
+  <div class="mban"><img src="mascot-banner.jpg" alt="Watt-D มาสคอตของการไฟฟ้าส่วนภูมิภาค" loading="lazy"><p>Watt-D มาสคอตของการไฟฟ้าส่วนภูมิภาค ช่วยให้คุณเตรียมเอกสารได้ครบ ไปครั้งเดียวจบ</p></div>
  </section>
  <section id="extl" hidden>
   <div class="note big">🛣️ ขยายเขตระบบไฟฟ้า คือการที่ กฟภ. ขยายเสาและสายไฟไปยังที่ดินหรือบ้านที่ยังไม่มีไฟฟ้า เลือกหัวข้อด้านล่างเพื่ออ่านหลักเกณฑ์ เอกสาร และสิทธิ 140 เมตร</div>
@@ -209,7 +222,7 @@ body[data-sec=ext] .tabs a[aria-current=page]{color:#07524c}
  <article id="detail" hidden></article>
  <article id="gal" hidden></article>
  <div class="help"><b>1129</b><div>ไม่แน่ใจว่าต้องใช้เอกสารอะไร? โทรสอบถาม PEA Contact Center หรือสอบถามที่สำนักงาน กฟภ. ใกล้บ้านก่อนเดินทาง</div></div>
- <footer>ข้อมูลจัดทำจากเอกสารแนะนำของผู้จัดทำเว็บไซต์ ไม่ใช่เว็บไซต์ทางการของ กฟภ. ค่าธรรมเนียมและเอกสารอาจเปลี่ยนแปลงได้ กรุณาตรวจสอบกับ กฟภ. อีกครั้งก่อนไปติดต่อ</footer>
+ <footer>ข้อมูลจัดทำจากเอกสารแนะนำของผู้จัดทำเว็บไซต์ ไม่ใช่เว็บไซต์ทางการของ กฟภ. ภาพมาสคอต Watt-D เป็นของการไฟฟ้าส่วนภูมิภาค ค่าธรรมเนียมและเอกสารอาจเปลี่ยนแปลงได้ กรุณาตรวจสอบกับ กฟภ. อีกครั้งก่อนไปติดต่อ</footer>
 </main>
 
 <div id="toast" role="status" hidden></div>
@@ -296,12 +309,18 @@ S.push(
  {h:"สรุปให้ปฏิบัติ",l:[["✅","ใช้สิทธิรายครัวเรือนได้"],["🔢","ต้องอนุมัติและก่อสร้างทีละงาน ตามลำดับ"],["🤝","ส่วนเกิน 140 เมตรของแต่ละครัวเรือน ร่วมลงทุน 50:50 ระหว่าง กฟภ. กับผู้ขอใช้ไฟ"]]}],
  img:["ph-ic22","ภาพต้นฉบับ: คำถามที่ 2.2"],src:"ที่มา (ตามภาพ): สื่อให้ความรู้ “ช่างไฟฟ้าส่วนภูมิภาค”"}
 );
-const EM=[["ภาพถ่าย","📷"],["ปฏิรูปที่ดิน","🌾"],["บัตรประจำตัว","🆔"],["ใบรับรองแพทย์","🏥"],["หลักฐานแสดงตัว","🆔"],["หลักฐานแสดงสถานที่","🏠"],["มรณ","🕊️"],["บัตรประชาชน","🆔"],["บัตรทหาร","🎖️"],["ทหารผ่านศึก","🎖️"],["ทะเบียนบ้าน","🏠"],["ทะเบียนตามบัตร","🏠"],["โฉนด","📜"],["ใบเสร็จ","🧾"],["วิศวกร","👷"],["ช่าง","👷"],["สัญญา","🤝"],["หนังสือรับรอง","🏢"],["อนุญาต","🏗️"],["ถ่ายรูป","📷"],["ยินยอม","✅"],["ตาราง","📋"],["เปลี่ยนชื่อ","🔄"],["ชาร์จ","🔌"],["เกษตร","🌾"],["มอบอำนาจ","✍️"]];
-const em=s=>(EM.find(e=>s.includes(e[0]))||[0,"📄"])[1];
+const ICONS={
+id:'<svg class="ico" viewBox="0 0 48 48" aria-hidden="true"><rect x="3" y="9" width="42" height="30" rx="5" fill="#dff0ff" stroke="#2a6db5" stroke-width="2"/><rect x="8" y="14" width="9" height="7" rx="1.5" fill="#f2c14e"/><path d="M8 27h19M8 32h14" stroke="#6b8db5" stroke-width="2.4" stroke-linecap="round"/><circle cx="36" cy="22" r="4.2" fill="#2a6db5"/><path d="M28.5 34c0-4.2 3.3-6.6 7.5-6.6s7.5 2.4 7.5 6.6z" fill="#2a6db5"/></svg>',
+book:'<svg class="ico" viewBox="0 0 48 48" aria-hidden="true"><rect x="8" y="4" width="32" height="40" rx="3.5" fill="#2f5fb3" stroke="#173a7a" stroke-width="2"/><rect x="8" y="4" width="6" height="40" rx="3" fill="#1f4690"/><rect x="18" y="9" width="17" height="5" rx="1.5" fill="#dbe7ff"/><polygon points="26.5,18 18,26 35,26" fill="#ffcf4a"/><rect x="20.5" y="26" width="12" height="9" fill="#fff" stroke="#ffcf4a" stroke-width="1.5"/><rect x="25" y="29" width="3.5" height="6" fill="#2f5fb3"/></svg>',
+steth:'<svg class="ico" viewBox="0 0 48 48" aria-hidden="true"><path d="M13 5v13a8 8 0 0 0 16 0V5" fill="none" stroke="#3a4a5c" stroke-width="3" stroke-linecap="round"/><circle cx="13" cy="5" r="2.5" fill="#3a4a5c"/><circle cx="29" cy="5" r="2.5" fill="#3a4a5c"/><path d="M21 26v6a9 9 0 0 0 18 0v-4" fill="none" stroke="#3a4a5c" stroke-width="3" stroke-linecap="round"/><circle cx="39" cy="24" r="5.5" fill="#e85d75" stroke="#3a4a5c" stroke-width="2.5"/></svg>'};
+const EM=[["ภาพถ่าย","📷"],["ปฏิรูปที่ดิน","🌾"],["ใบรับรองแพทย์","@steth"],["บัตรทหาร","🎖️"],["ทหารผ่านศึก","🎖️"],["หลักฐานแสดงสถานที่","🏠"],["ทะเบียนบ้าน","@book"],["ทะเบียนตามบัตร","@book"],["บัตรประจำตัว","@id"],["หลักฐานแสดงตัว","@id"],["มรณ","🕊️"],["บัตรประชาชน","@id"],["โฉนด","📜"],["ใบเสร็จ","🧾"],["วิศวกร","👷"],["ช่าง","👷"],["สัญญา","🤝"],["หนังสือรับรอง","🏢"],["อนุญาต","🏗️"],["ถ่ายรูป","📷"],["ยินยอม","✅"],["ตาราง","📋"],["เปลี่ยนชื่อ","🔄"],["ชาร์จ","🔌"],["เกษตร","🌾"],["มอบอำนาจ","✍️"]];
+const em=t=>{const v=(EM.find(e=>t.includes(e[0]))||[0,"📄"])[1];return v[0]==="@"?ICONS[v.slice(1)]:v};
 const $=s=>document.querySelector(s);
 const SPKBOX='<div class="spkbox"><b>🌾 เอกสารพิเศษสำหรับที่ดิน ส.ป.ก.</b><p>“หนังสือยินยอมหรืออนุญาตให้ใช้ที่ดินในเขตปฏิรูปที่ดิน” ออกโดยสำนักงานการปฏิรูปที่ดินเพื่อเกษตรกรรม (ส.ป.ก.) หรือสำนักงานปฏิรูปที่ดินจังหวัด ใช้ยื่นประกอบการขอใช้ไฟที่ กฟภ.</p><div class="act"><button class="btn" id="sv">👁️ ดูตัวอย่างหนังสือยินยอม</button><a class="btn" href="spk-letter.pdf" target="_blank" rel="noopener">📄 เปิดหนังสือ ส.ป.ก. ถึง กฟภ. (PDF)</a></div></div>';
 const LOADBOX='<div class="spkbox"><b>📋 ตารางโหลดไฟฟ้า (Load Schedule)</b><p>ตารางโหลดสำหรับระบบไฟฟ้า 3 เฟส 4 สาย (380/220 โวลต์) คือตารางที่ใช้แจกแจงรายการวงจรย่อย (Circuit Breakers) ของตู้โหลดเซ็นเตอร์ (Load Center) เพื่อควบคุมและคำนวณการใช้กระแสไฟฟ้าในแต่ละเฟส (Phase A, B, C) ให้มีความสมดุล</p><div class="act"><button class="btn" id="lv">👁️ ดูตัวอย่างตารางโหลด</button><a class="btn" href="#photos">📷 ตัวอย่างหนังสือยินยอมรับสภาพ (ภาพข้อ 1.3)</a></div></div>';
 S.find(x=>x.id==="size-co").box=LOADBOX;S.find(x=>x.id==="size").box=LOADBOX;
+const EVTIP='<div class="tip"><img class="ev" src="mascot-ev.jpg" alt="Watt-D ข้างเครื่องชาร์จรถไฟฟ้า"><div class="bub">มีเครื่องชาร์จรถไฟฟ้า (EV Charger)? อย่าลืมเตรียมเอกสารเกี่ยวกับเครื่องชาร์จรถ (วอลล์ชาร์จ) เพิ่มด้วยนะ</div></div>';
+S.find(x=>x.id==="size").ev=1;S.find(x=>x.id==="size-co").ev=1;
 const SP='<button class="spk" aria-label="กดฟังเสียงอ่าน" title="ฟังเสียงอ่าน">🔊</button>';
 const PH=[
 {k:"1.1",t:"การเดินวงจรไฟฟ้าแบบลอยอากาศ สำหรับบ้านทั่วไป",d:"ตัวอย่างการเดินวงจรไฟฟ้าแบบลอยอากาศ (สายไฟพาดลอยจากเสาไฟฟ้า) สำหรับบ้านอยู่อาศัยทั่วไป",im:[["house-1","เสาไฟฟ้าและสายไฟลอยอากาศ"],["house-2","บ้านที่ขอใช้ไฟ"],["house-3","มิเตอร์ไฟฟ้าและสายที่ต่อลงมา"],["house-4","บริเวณหน้าบ้าน (เห็นเสาไฟฟ้าด้านหลัง)"],["house-5","ตู้โหลดเซ็นเตอร์ (เบรกเกอร์) ในบ้าน"],["house-6","เสาไฟฟ้าหน้าบ้านและสายเมนลอยอากาศ"]]},
@@ -432,10 +451,10 @@ function renderDetail(s){
  $("#detail").innerHTML=`<button class="back" id="bk">← กลับไปเลือกเรื่องอื่น (${s.area==="ext"?"ขยายเขตระบบไฟฟ้า":"ขอใช้ไฟฟ้า"})</button>
  <div class="dh"><span class="ic" aria-hidden="true">${s.ic}</span><div><h2>${s.t}</h2><p>${s.d}</p></div></div>
  ${intro}${s.top||""}${imgb}${w}
- ${hasD?`<h3 class="s">เอกสารที่ต้องเตรียม <small id="pc"></small></h3>
+ ${hasD?`<div class="tip"><img src="mascot.jpg" alt="Watt-D"><div class="bub">ติ๊กเอกสารทีละข้อให้ครบ แล้วนำไปที่ กฟภ. ได้เลย อยากฟังเสียงอ่านให้ กดปุ่ม 🔊 ได้นะ!</div></div><h3 class="s">เอกสารที่ต้องเตรียม <small id="pc"></small></h3>
  <div class="prog" role="progressbar" aria-valuemin="0" aria-valuemax="100"><i id="pb"></i></div>
  <ul class="list" id="dl">${s.docs.map((d,i)=>`<li id="li${i}"><label><input type="checkbox" data-i="${i}" ${saved.includes(i)?"checked":""}><span class="e" aria-hidden="true">${em(d)}</span><span class="tx">${d}</span></label>${SP}</li>`).join("")}</ul>`:""}
- ${s.spk?SPKBOX:""}${s.box||""}${fee}${n}${sec}${s.src?`<p class="cap2">${s.src}</p>`:""}
+ ${s.ev?EVTIP:""}${s.spk?SPKBOX:""}${s.box||""}${fee}${n}${sec}${s.src?`<p class="cap2">${s.src}</p>`:""}
  ${hasD&&!s.nopoa?`<h3 class="s">ถ้าให้คนอื่นไปทำแทน</h3>
  <details class="poa"><summary>ดูเอกสารเพิ่มเติม (กรณีมอบอำนาจ)</summary><ul class="list">${poa.map(d=>`<li><span class="e" aria-hidden="true">${em(d)}</span><span class="tx" style="flex:1">${d}</span>${SP}</li>`).join("")}</ul></details>`:""}
  <div class="act">${hasD?'<button class="btn" id="ra">🔊 อ่านออกเสียงทั้งหมด</button>':""}<button class="btn" id="pr">🖨️ พิมพ์รายการนี้</button>${hasD?'<button class="btn" id="rs">↺ ล้างเครื่องหมาย</button>':""}</div>`;
